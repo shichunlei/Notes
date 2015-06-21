@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="ResourceAsColor">
+        <ignore path="src/com/leo/notes/WelcomeActivity.java" />
+        <ignore path="src/com/leo/notes/view/WelcomeActivity.java" />
+    </issue>
+    <issue id="SimpleDateFormat">
+        <ignore path="src/com/leo/notes/view/MyApplication.java" />
+    </issue>
+</lint>
