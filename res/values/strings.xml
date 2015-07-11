@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">风知记事</string>
-    <string name="action_skin">皮肤</string>
-    <string name="action_help">帮助</string>
-    <string name="action_about">关于</string>
+    <string name="app_name">彩虹记事</string>
     <string name="action_key">密码</string>
     <string name="action_say">感悟</string>
     <string name="action_font">字体</string>
@@ -79,6 +76,6 @@
     <string name="clear_cancel">取消清空</string>
     <string name="refresh_txt">记事已刷新</string>
     <string name="left_txt">剩余</string>
-    <string name="about_txt">风知记事 v1.0\r\n\r\n作者：swimmi\r\n邮箱：go2eric@126.com\r\n\r\n欢迎交流，谢谢支持！</string>
+    <string name="about_txt">彩虹记事 v1.0\r\n\r\n作者：leo\r\n邮箱：1558053958@qq.com\r\n\r\n欢迎交流，谢谢支持！</string>
 
 </resources>
