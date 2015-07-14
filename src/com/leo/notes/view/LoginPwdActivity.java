@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.leo.notes.R;
 import com.leo.notes.view.base.BaseActivity;
 
-public class LoginActivity extends BaseActivity {
+public class LoginPwdActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.login)
 	LinearLayout login;
@@ -56,7 +56,7 @@ public class LoginActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_login);
+		setContentView(R.layout.activity_login_pwd);
 
 		FinalActivity.initInjectedView(this);
 

@@ -1,9 +1,14 @@
 package com.leo.notes.been;
 
-public class Notes {
+import cn.bmob.v3.BmobObject;
 
-	/** id */
-	private int id;
+public class Notes extends BmobObject {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7638570521195111151L;
+
 	/** 标题（名称） */
 	private String title;
 	/** 内容 */
@@ -13,12 +18,14 @@ public class Notes {
 	/** 分组 */
 	private int group;
 
-	public int getId() {
-		return id;
+	private User author;
+
+	public User getAuthor() {
+		return author;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 
 	public String getTitle() {
@@ -55,8 +62,8 @@ public class Notes {
 
 	@Override
 	public String toString() {
-		return "Notes [id=" + id + ", title=" + title + ", content=" + content
-				+ ", time=" + time + ", group=" + group + "]";
+		return "Notes [title=" + title + ", content=" + content + ", time="
+				+ time + ", group=" + group + ", author=" + author + "]";
 	}
 
 }

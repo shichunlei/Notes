@@ -1,7 +1,13 @@
 package com.leo.notes.been;
 
-public class Group {
+import cn.bmob.v3.BmobObject;
 
+public class Group extends BmobObject {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1057527998896251001L;
 	private int id;
 	private int num;
 	private String cover;
