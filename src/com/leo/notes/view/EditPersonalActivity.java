@@ -27,10 +27,12 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.GetListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 import com.leo.notes.R;
@@ -41,7 +43,7 @@ import com.leo.notes.view.base.BaseActivity;
 public class EditPersonalActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.personal_edit)
-	LinearLayout edit;
+	RelativeLayout edit;
 
 	@ViewInject(id = R.id.ivTitleName)
 	private TextView tvTitle;
@@ -54,7 +56,7 @@ public class EditPersonalActivity extends BaseActivity {
 	private static final int CAMERA = 2;
 	private static final int ZOOM = 3;
 
-	@ViewInject(id = R.id.img_regist_add_photo, click = "addPhone")
+	@ViewInject(id = R.id.img_edit_add_photo, click = "addPhone")
 	private HeaderImageView phone;
 
 	private CircularProgressDialog loading;
@@ -64,15 +66,15 @@ public class EditPersonalActivity extends BaseActivity {
 	@ViewInject(id = R.id.ivTitleBtnRigh, click = "save")
 	private ImageView save;
 
-	@ViewInject(id = R.id.et_regist_name)
+	@ViewInject(id = R.id.et_edit_name)
 	private EditText etName;
-	@ViewInject(id = R.id.et_regist_email)
+	@ViewInject(id = R.id.et_edit_email)
 	private EditText etEmail;
-	@ViewInject(id = R.id.et_regist_mobile)
+	@ViewInject(id = R.id.et_edit_mobile)
 	private EditText etMobile;
-	@ViewInject(id = R.id.tv_regist_birthday, click = "selectBirthday")
+	@ViewInject(id = R.id.tv_edit_birthday, click = "selectBirthday")
 	private TextView tvBirthday;
-	@ViewInject(id = R.id.tv_regist_gender, click = "selectGender")
+	@ViewInject(id = R.id.tv_edit_gender, click = "selectGender")
 	private TextView tvGender;
 
 	private String gender = "保密";
@@ -111,38 +113,15 @@ public class EditPersonalActivity extends BaseActivity {
 	private void init() {
 		User current_user = BmobUser.getCurrentUser(this, User.class);
 		objectId = current_user.getObjectId();
-		age = current_user.getAge();
-		birthday = current_user.getBirthday();
-		gender = current_user.getGender();
-		String name = current_user.getUsername();
-		String email = current_user.getEmail();
-		String mobile = current_user.getMobilePhoneNumber();
 
-		if (!StringUtil.isEmpty(name)) {
-			etName.setText(name);
-		}
-		if (!StringUtil.isEmpty(email)) {
-			etEmail.setText(email);
-		}
-		if (!StringUtil.isEmpty(mobile)) {
-			etMobile.setText(mobile);
-		}
-		if (!StringUtil.isEmpty(gender)) {
-			tvGender.setText(gender);
-		} else {
-			tvGender.setText("未知");
-		}
-		if (!StringUtil.isEmpty(birthday)) {
-			tvBirthday.setText(birthday);
-		} else {
-			tvGender.setText(nowday);
-		}
+		getPersonalInfo(objectId);
 
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
 		edit.setBackgroundColor(color);
 		tvTitle.setText("编辑个人信息");
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
+		save.setImageResource(R.drawable.save);
 
 		loading = CircularProgressDialog.show(context);
 
@@ -278,6 +257,52 @@ public class EditPersonalActivity extends BaseActivity {
 		}
 	}
 
+	private void getPersonalInfo(String objectId) {
+
+		BmobQuery<User> query = new BmobQuery<User>();
+		query.getObject(this, objectId, new GetListener<User>() {
+
+			@Override
+			public void onSuccess(User user) {
+				loading.dismiss();
+				age = user.getAge();
+				birthday = user.getBirthday();
+				gender = user.getGender();
+				String name = user.getUsername();
+				String email = user.getEmail();
+				String mobile = user.getMobilePhoneNumber();
+
+				if (!StringUtil.isEmpty(name)) {
+					etName.setText(name);
+				}
+				if (!StringUtil.isEmpty(email)) {
+					etEmail.setText(email);
+				}
+				if (!StringUtil.isEmpty(mobile)) {
+					etMobile.setText(mobile);
+				}
+				if (!StringUtil.isEmpty(gender)) {
+					tvGender.setText(gender);
+				} else {
+					tvGender.setText("未知");
+				}
+				if (!StringUtil.isEmpty(birthday)) {
+					tvBirthday.setText(birthday);
+				} else {
+					tvGender.setText(nowday);
+				}
+			}
+
+			@Override
+			public void onFailure(int code, String msg) {
+				loading.dismiss();
+				Log.i(TAG, msg);
+			}
+
+		});
+
+	}
+
 	/**
 	 * 验证信息
 	 * 
@@ -291,7 +316,7 @@ public class EditPersonalActivity extends BaseActivity {
 		age = 26;
 
 		loading.show();
-		postRegist(name, email, mobile, gender, birthday, age);
+		postSave(name, email, mobile, gender, birthday, age);
 	}
 
 	/**
@@ -305,7 +330,7 @@ public class EditPersonalActivity extends BaseActivity {
 	 * @param age
 	 * @param birthday
 	 */
-	private void postRegist(String name, String email, String mobile,
+	private void postSave(String name, String email, String mobile,
 			String gender, String birthday, int age) {
 
 		User user = new User();
