@@ -4,8 +4,10 @@ import java.util.Calendar;
 
 import scl.leo.library.utils.other.SPUtils;
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobUser;
 
 import com.leo.notes.R;
+import com.leo.notes.been.User;
 import com.leo.notes.util.Constants;
 import com.leo.notes.util.Quotes;
 import com.leo.notes.view.base.BaseActivity;
@@ -64,7 +66,13 @@ public class WelcomeActivity extends BaseActivity {
 
 		animation.setAnimationListener(new AnimationListener() {
 			public void onAnimationEnd(Animation animation) {
-				openActivity(LoginPwdActivity.class, true);
+				User current_user = BmobUser
+						.getCurrentUser(context, User.class);
+				if (null == current_user) {
+					openActivity(LoginActivity.class, true);
+				} else {
+					openActivity(LoginPwdActivity.class, true);
+				}
 			}
 
 			public void onAnimationRepeat(Animation animation) {
