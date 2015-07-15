@@ -147,8 +147,18 @@ public class BaseActivity extends FragmentActivity {
 	 * @param pClass
 	 * @param isfinish
 	 */
+	protected void openActivity(Class<?> pClass, int i) {
+		showActivity(pClass, null, null, null, null, false, i);
+	}
+
+	/**
+	 * 通过类名启动Activity，是否结束本页面
+	 * 
+	 * @param pClass
+	 * @param isfinish
+	 */
 	protected void openActivity(Class<?> pClass, boolean isfinish) {
-		showActivity(pClass, null, null, null, null, isfinish);
+		showActivity(pClass, null, null, null, null, isfinish, 0);
 	}
 
 	/**
@@ -159,7 +169,7 @@ public class BaseActivity extends FragmentActivity {
 	 * @param value
 	 */
 	protected void openActivity(Class<?> pClass, String key, Serializable value) {
-		showActivity(pClass, null, key, value, null, false);
+		showActivity(pClass, null, key, value, null, false, 0);
 	}
 
 	/**
@@ -172,7 +182,7 @@ public class BaseActivity extends FragmentActivity {
 	 */
 	protected void openActivity(Class<?> pClass, String key,
 			Serializable value, boolean isfinish) {
-		showActivity(pClass, null, key, value, null, isfinish);
+		showActivity(pClass, null, key, value, null, isfinish, 0);
 	}
 
 	/**
@@ -184,7 +194,7 @@ public class BaseActivity extends FragmentActivity {
 	 */
 	protected void openActivity(Class<?> pClass, Bundle pBundle,
 			boolean isfinish) {
-		showActivity(pClass, pBundle, null, null, null, isfinish);
+		showActivity(pClass, pBundle, null, null, null, isfinish, 0);
 	}
 
 	/**
@@ -194,11 +204,11 @@ public class BaseActivity extends FragmentActivity {
 	 * @param isfinish
 	 */
 	protected void openActivity(String className, boolean isfinish) {
-		showActivity(null, null, null, null, className, isfinish);
+		showActivity(null, null, null, null, className, isfinish, 0);
 	}
 
 	protected void showActivity(Class<?> pClass, Bundle bundle, String key,
-			Serializable value, String className, boolean isfinish) {
+			Serializable value, String className, boolean isfinish, int i) {
 
 		Intent intent = new Intent(context, pClass);
 
@@ -215,7 +225,11 @@ public class BaseActivity extends FragmentActivity {
 			}
 		}
 
-		startActivity(intent);
+		if (i == 0) {
+			startActivity(intent);
+		} else {
+			startActivityForResult(intent, i);
+		}
 
 		overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 		if (isfinish) {
