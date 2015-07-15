@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/tools_box_bg"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:id="@+id/llRoot"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvMuseum"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="甘肃省博物馆"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/tvHall1"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="丝绸之路展"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/tvHall2"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="甘肃彩陶展"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/tvHall3"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="古生物化石展"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/tvHall4"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="黄河古象厅恐龙展"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/tvHall5"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="佛教艺术展"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/tvHall6"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="20.0dip"
+            android:singleLine="true"
+            android:text="红色甘肃"
+            android:textColor="#ffccccc6"
+            android:textSize="16.0sp" />
+    </LinearLayout>
+
+</ScrollView>
