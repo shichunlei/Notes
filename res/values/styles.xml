@@ -22,5 +22,22 @@
         <item name="android:shadowDy">-1.0</item>
         <item name="android:shadowRadius">1.0</item>
     </style>
+    
+	<style name="app_pop">
+        <item name="android:windowEnterAnimation">@anim/pop_up</item>
+        <item name="android:windowExitAnimation">@anim/pop_down</item>
+    </style>
+
+    <style name="login_edittext">
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColor">@color/gray_font</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
 
 </resources>

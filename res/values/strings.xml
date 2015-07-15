@@ -77,5 +77,7 @@
     <string name="refresh_txt">记事已刷新</string>
     <string name="left_txt">剩余</string>
     <string name="about_txt">彩虹记事 v1.0\r\n\r\n作者：leo\r\n邮箱：1558053958@qq.com\r\n\r\n欢迎交流，谢谢支持！</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
 
 </resources>
