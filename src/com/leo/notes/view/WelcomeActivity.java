@@ -62,7 +62,7 @@ public class WelcomeActivity extends BaseActivity {
 
 		animation.setAnimationListener(new AnimationListener() {
 			public void onAnimationEnd(Animation animation) {
-				openActivity(LoginActivity.class, true);
+				openActivity(LoginPwdActivity.class, true);
 			}
 
 			public void onAnimationRepeat(Animation animation) {

@@ -39,7 +39,7 @@
         </activity>
         <activity android:name="com.leo.notes.view.MainActivity" >
         </activity>
-        <activity android:name="com.leo.notes.view.LoginActivity" >
+        <activity android:name="com.leo.notes.view.LoginPwdActivity" >
         </activity>
         <activity android:name="com.leo.notes.view.SetpwdActivity" >
         </activity>

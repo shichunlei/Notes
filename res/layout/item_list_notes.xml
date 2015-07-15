@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical|left"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:text="2015.06"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/green_tosk_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="TITLE"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:padding="10dp"
+            android:text="CONTENTofi我饿hi佛王二狗【 ewrjp ojperjfwpe rgjoperg dpdfpoejr go jrgor jg eiprjgl dmvpe orjgfoerjpo"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

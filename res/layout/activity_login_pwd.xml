@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/top_title"
+        layout="@layout/title_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <LinearLayout
+            android:id="@+id/passwordfild"
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="40dp"
+            android:background="#ffcacaca"
+            android:orientation="horizontal" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="@null" >
+
+                <EditText
+                    android:id="@+id/password1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_edit"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="numberPassword"
+                    android:maxLength="1" />
+
+                <ImageView
+                    android:id="@+id/point1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/point"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <EditText
+                    android:id="@+id/password2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_edit"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="numberPassword"
+                    android:maxLength="1" />
+
+                <ImageView
+                    android:id="@+id/point2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/point"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <EditText
+                    android:id="@+id/password3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_edit"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="numberPassword"
+                    android:maxLength="1" />
+
+                <ImageView
+                    android:id="@+id/point3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/point"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <EditText
+                    android:id="@+id/password4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_edit"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="numberPassword"
+                    android:maxLength="1" />
+
+                <ImageView
+                    android:id="@+id/point4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/point"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_keyboard"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:id="@+id/k_layout1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/one"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="one"
+                    android:text="1"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/tow"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="tow"
+                    android:text="2"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/three"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="three"
+                    android:text="3"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/k_layout2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/four"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="four"
+                    android:text="4"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/five"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="five"
+                    android:text="5"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/six"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="six"
+                    android:text="6"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/k_layout3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/seven"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="seven"
+                    android:text="7"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/eight"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="eight"
+                    android:text="8"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/nine"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="nine"
+                    android:text="9"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/k_layout4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/del"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="del"
+                    android:text="del"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/zero"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="zero"
+                    android:text="0"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/ok"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:onClick="ok"
+                    android:text="ok"
+                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="请输入安全锁密码"
+            android:textColor="#8e8e8e"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</LinearLayout>
