@@ -1,6 +1,7 @@
 package com.leo.notes.been;
 
 import cn.bmob.v3.BmobObject;
+import cn.bmob.v3.datatype.BmobFile;
 
 public class Group extends BmobObject {
 
@@ -8,18 +9,13 @@ public class Group extends BmobObject {
 	 * 
 	 */
 	private static final long serialVersionUID = 1057527998896251001L;
-	private int id;
-	private int num;
-	private String cover;
+
+	/** 数量 */
+	private Integer num;
+	/** 封面图片 */
+	private BmobFile cover;
+	/** 分组名称 */
 	private String name;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public int getNum() {
 		return num;
@@ -29,12 +25,16 @@ public class Group extends BmobObject {
 		this.num = num;
 	}
 
-	public String getCover() {
+	public BmobFile getCover() {
 		return cover;
 	}
 
-	public void setCover(String cover) {
+	public void setCover(BmobFile cover) {
 		this.cover = cover;
+	}
+
+	public void setNum(Integer num) {
+		this.num = num;
 	}
 
 	public String getName() {
@@ -47,8 +47,8 @@ public class Group extends BmobObject {
 
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", num=" + num + ", cover=" + cover
-				+ ", name=" + name + "]";
+		return "Group [num=" + num + ", cover=" + cover + ", name=" + name
+				+ "]";
 	}
 
 }

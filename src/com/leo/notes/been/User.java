@@ -10,9 +10,13 @@ public class User extends BmobUser {
 	 */
 	private static final long serialVersionUID = -7309974181538936739L;
 
+	/** 年龄 */
 	private Integer age;
+	/** 生日 */
 	private String birthday;
+	/** 性别 */
 	private String gender;
+	/** 头像 */
 	private BmobFile headerpic;
 
 	public Integer getAge() {

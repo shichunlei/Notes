@@ -13,11 +13,9 @@ public class Notes extends BmobObject {
 	private String title;
 	/** 内容 */
 	private String content;
-	/** 创建时间 */
-	private String time;
 	/** 分组 */
-	private int group;
-
+	private Group group;
+	/** 用户 */
 	private User author;
 
 	public User getAuthor() {
@@ -44,26 +42,18 @@ public class Notes extends BmobObject {
 		this.content = content;
 	}
 
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
-	public int getGroup() {
+	public Group getGroup() {
 		return group;
 	}
 
-	public void setGroup(int group) {
+	public void setGroup(Group group) {
 		this.group = group;
 	}
 
 	@Override
 	public String toString() {
-		return "Notes [title=" + title + ", content=" + content + ", time="
-				+ time + ", group=" + group + ", author=" + author + "]";
+		return "Notes [title=" + title + ", content=" + content + ", group="
+				+ group + ", author=" + author + "]";
 	}
 
 }
