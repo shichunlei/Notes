@@ -10,16 +10,16 @@ public class User extends BmobUser {
 	 */
 	private static final long serialVersionUID = -7309974181538936739L;
 
-	private String age;
+	private Integer age;
 	private String birthday;
 	private String gender;
 	private BmobFile headerpic;
 
-	public String getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
