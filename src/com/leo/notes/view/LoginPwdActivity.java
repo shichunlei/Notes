@@ -172,9 +172,9 @@ public class LoginPwdActivity extends BaseActivity {
 			if ("nothing".equals(pwd)) {
 				SPUtils.put(context, "password", password, "PASSWORD");
 				Toast.makeText(this, "密码设置成功！", Toast.LENGTH_SHORT).show();
-				openActivity(MainActivity.class, true);
+				openActivity(MainFragmentActivity.class, true);
 			} else if (password.equals(pwd)) {
-				openActivity(MainActivity.class, true);
+				openActivity(MainFragmentActivity.class, true);
 			} else {
 				Animation anim = AnimationUtils.loadAnimation(context,
 						R.anim.myanim);
