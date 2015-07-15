@@ -8,9 +8,10 @@ import scl.leo.library.utils.other.StringUtil;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -21,7 +22,7 @@ import com.leo.notes.view.base.BaseActivity;
 public class RegistActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.regist)
-	LinearLayout regist;
+	RelativeLayout regist;
 
 	@ViewInject(id = R.id.ivTitleName)
 	private TextView tvTitle;
@@ -43,13 +44,14 @@ public class RegistActivity extends BaseActivity {
 	@ViewInject(id = R.id.et_regist_repwd)
 	private EditText etRePwd;
 
+	@ViewInject(id = R.id.btn_regist, click = "regist")
+	private Button btnRegist;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_regist);
-
 		FinalActivity.initInjectedView(this);
-
 		init();
 	}
 
@@ -101,11 +103,11 @@ public class RegistActivity extends BaseActivity {
 	 * @param pwd
 	 */
 	private void postRegist(String name, String pwd) {
-		final User user = new User();
+		User user = new User();
 		user.setUsername(name);
 		user.setPassword(pwd);
 
-		user.signUp(this, new SaveListener() {
+		user.signUp(context, new SaveListener() {
 
 			@Override
 			public void onSuccess() {
