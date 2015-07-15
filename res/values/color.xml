@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="gray">#F0F0F0</color>
+
+    <color name="gray">#F0F0F0</color>
     <color name="darkgray">#777777</color>
     <color name="middlegray">#D7D7D7</color>
     <color name="red">#ff3300</color>
@@ -17,5 +18,6 @@
     <color name="gray_font">#818181</color>
     <color name="base_black_gray">#636363</color>
     <color name="devide_line">#CBCED2</color>
+    <color name="tools_box_bg">#ff333332</color>
 
 </resources>
