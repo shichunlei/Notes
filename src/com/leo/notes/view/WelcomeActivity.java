@@ -3,8 +3,10 @@ package com.leo.notes.view;
 import java.util.Calendar;
 
 import scl.leo.library.utils.other.SPUtils;
+import cn.bmob.v3.Bmob;
 
 import com.leo.notes.R;
+import com.leo.notes.util.Constants;
 import com.leo.notes.util.Quotes;
 import com.leo.notes.view.base.BaseActivity;
 
@@ -34,10 +36,10 @@ public class WelcomeActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_welcome);
-
 		FinalActivity.initInjectedView(this);
+		Bmob.initialize(getApplicationContext(), Constants.APPLICATION_ID);
+
 		Calendar calendar = Calendar.getInstance();
 		// 获取当前时间为本周的第几天
 		int day = calendar.get(Calendar.DAY_OF_WEEK);
