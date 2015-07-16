@@ -59,6 +59,8 @@
         </activity>
         <activity android:name="com.leo.notes.view.EditPersonalActivity" >
         </activity>
+        <activity android:name="com.leo.notes.view.SettingActivity" >
+        </activity>
     </application>
 
 </manifest>
