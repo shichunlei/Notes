@@ -18,6 +18,7 @@ import cn.bmob.v3.listener.GetListener;
 
 import com.leo.notes.R;
 import com.leo.notes.been.User;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 public class PersonalInfoActivity extends BaseActivity {
@@ -73,7 +74,8 @@ public class PersonalInfoActivity extends BaseActivity {
 
 	private void init() {
 		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
 		info.setBackgroundColor(color);
 		tvTitle.setText("个人信息");
 		ivTitleLeft.setImageResource(R.drawable.icon_back);

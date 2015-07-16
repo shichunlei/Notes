@@ -37,7 +37,7 @@ import cn.bmob.v3.listener.UpdateListener;
 
 import com.leo.notes.R;
 import com.leo.notes.been.User;
-import com.leo.notes.util.AppConfig;
+import com.leo.notes.util.*;
 import com.leo.notes.view.base.BaseActivity;
 
 public class EditPersonalActivity extends BaseActivity {
@@ -158,7 +158,7 @@ public class EditPersonalActivity extends BaseActivity {
 			public void onClick(View v) {
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				// 下面这句指定调用相机拍照后的照片存储的路径
-				takePicturePath = AppConfig.TEMPORARY_IMAGE_NAME;
+				takePicturePath = Constants.TEMPORARY_IMAGE_NAME;
 				Log.i(TAG, "takePicturePath = " + takePicturePath);
 				File image = new File(takePicturePath);
 				intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
@@ -238,7 +238,7 @@ public class EditPersonalActivity extends BaseActivity {
 		if (extras != null) {
 			Bitmap bitmap = extras.getParcelable("data");
 			FileOutputStream b = null;
-			coverName = AppConfig.TEMP_IMAGE_NAME;
+			coverName = Constants.TEMP_IMAGE_NAME;
 			try {
 				b = new FileOutputStream(coverName);
 				bitmap.compress(Bitmap.CompressFormat.JPEG, 100, b);// 把数据写入文件

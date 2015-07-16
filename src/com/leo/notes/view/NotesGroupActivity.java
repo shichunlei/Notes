@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 /**
@@ -47,7 +48,8 @@ public class NotesGroupActivity extends BaseActivity {
 
 	private void init() {
 		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
 		notesgroup.setBackgroundColor(color);
 		tvTitle.setText("我的分类");
 		imgLeft.setImageResource(R.drawable.add);

@@ -54,7 +54,8 @@ public class WelcomeActivity extends BaseActivity {
 		String content = Quotes.quotes[random];
 
 		color = getResources().getColor(colors[day - 1]);
-		SPUtils.put(getApplicationContext(), "color", colors[day - 1], "COLOR");
+		SPUtils.put(getApplicationContext(), "color", colors[day - 1],
+				Constants.COLOR);
 		welcome.setBackgroundColor(color);
 		quoteTxt.setTextColor(color);
 		quoteTxt.setText(content);

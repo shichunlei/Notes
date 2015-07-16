@@ -15,6 +15,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 import com.leo.notes.R;
 import com.leo.notes.been.User;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity {
@@ -48,7 +49,8 @@ public class LoginActivity extends BaseActivity {
 
 	private void init() {
 		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
 		login.setBackgroundColor(color);
 		tvTitle.setText("登录");
 		loading = CircularProgressDialog.show(context);

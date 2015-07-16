@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 public class NotesAddAndEditActivity extends BaseActivity {
@@ -44,7 +45,8 @@ public class NotesAddAndEditActivity extends BaseActivity {
 			tvTitle.setText("title");
 		}
 		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
 		notesedit.setBackgroundColor(color);
 
 		imgLeft.setImageResource(R.drawable.delete);

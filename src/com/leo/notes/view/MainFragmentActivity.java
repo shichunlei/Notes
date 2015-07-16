@@ -3,15 +3,18 @@ package com.leo.notes.view;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
 import scl.leo.library.slidingmenu.SlidingMenu;
+import scl.leo.library.utils.other.SPUtils;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
 import com.leo.notes.fragment.MenuFragment;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 public class MainFragmentActivity extends BaseActivity {
@@ -20,10 +23,15 @@ public class MainFragmentActivity extends BaseActivity {
 
 	protected SlidingMenu mSlidingMenu;
 
+	@ViewInject(id = R.id.main)
+	private LinearLayout main;
+	
 	@ViewInject(id = R.id.ivTitleBtnLeft, click = "menu")
 	private ImageView ivTitleLeft;
 	@ViewInject(id = R.id.ivTitleName)
 	private TextView tvTitle;
+	
+	int color;
 
 	private long mExitTime;
 
@@ -37,6 +45,10 @@ public class MainFragmentActivity extends BaseActivity {
 	}
 
 	private void init() {
+		color = getResources().getColor(
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
+		main.setBackgroundColor(color);
 		tvTitle.setText("主页");
 		ivTitleLeft.setImageResource(R.drawable.menu);
 	}

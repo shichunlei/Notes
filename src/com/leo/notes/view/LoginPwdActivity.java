@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leo.notes.R;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 public class LoginPwdActivity extends BaseActivity {
@@ -61,14 +62,15 @@ public class LoginPwdActivity extends BaseActivity {
 		FinalActivity.initInjectedView(this);
 
 		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
 		login.setBackgroundColor(color);
 		layout_keyboard.setBackgroundColor(color);
 		pfild.setBackgroundColor(color);
 		tvTitle.setText("登录");
 
 		String password = (String) SPUtils.get(context, "password", "nothing",
-				"PASSWORD");
+				Constants.PASSWORD);
 		if ("nothing".equals(password)) {
 			tip.setText("请设置密码");
 		} else {
@@ -168,9 +170,9 @@ public class LoginPwdActivity extends BaseActivity {
 				+ p3.getText().toString() + p4.getText().toString();
 		if (!TextUtils.isEmpty(password) && password.length() == 4) {
 			String pwd = (String) SPUtils.get(context, "password", "nothing",
-					"PASSWORD");
+					Constants.PASSWORD);
 			if ("nothing".equals(pwd)) {
-				SPUtils.put(context, "password", password, "PASSWORD");
+				SPUtils.put(context, "password", password, Constants.PASSWORD);
 				Toast.makeText(this, "密码设置成功！", Toast.LENGTH_SHORT).show();
 				openActivity(MainFragmentActivity.class, true);
 			} else if (password.equals(pwd)) {

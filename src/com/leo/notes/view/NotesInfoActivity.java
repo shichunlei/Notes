@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
+import com.leo.notes.util.Constants;
 import com.leo.notes.view.base.BaseActivity;
 
 public class NotesInfoActivity extends BaseActivity {
@@ -39,7 +40,8 @@ public class NotesInfoActivity extends BaseActivity {
 
 	private void init() {
 		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
 		notesinfo.setBackgroundColor(color);
 		tvTitle.setText("彩虹记事");
 		imgLeft.setImageResource(R.drawable.back);
