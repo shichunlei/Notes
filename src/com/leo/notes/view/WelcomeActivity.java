@@ -1,8 +1,7 @@
 package com.leo.notes.view;
 
-import java.util.Calendar;
-
 import scl.leo.library.utils.other.SPUtils;
+import scl.leo.library.utils.other.TimeUtils;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 
@@ -42,10 +41,8 @@ public class WelcomeActivity extends BaseActivity {
 		FinalActivity.initInjectedView(this);
 		Bmob.initialize(getApplicationContext(), Constants.APPLICATION_ID);
 
-		Calendar calendar = Calendar.getInstance();
 		// 获取当前时间为本周的第几天
-		int day = calendar.get(Calendar.DAY_OF_WEEK);
-		Log.i("---------------------", "今天是星期" + (day - 1));
+		int day = TimeUtils.nowWeek();
 
 		int random = (int) (Math.random() * 99 + 0);
 
@@ -53,8 +50,8 @@ public class WelcomeActivity extends BaseActivity {
 
 		String content = Quotes.quotes[random];
 
-		color = getResources().getColor(colors[day - 1]);
-		SPUtils.put(getApplicationContext(), "color", colors[day - 1],
+		color = getResources().getColor(colors[day]);
+		SPUtils.put(getApplicationContext(), "color", colors[day],
 				Constants.COLOR);
 		welcome.setBackgroundColor(color);
 		quoteTxt.setTextColor(color);
