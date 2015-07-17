@@ -52,8 +52,8 @@ public class Notes extends BmobObject {
 
 	@Override
 	public String toString() {
-		return "Notes [title=" + title + ", content=" + content + ", group="
-				+ group + ", author=" + author + "]";
+		return "{\"title\":\"" + title + "\", \"content\":\"" + content
+				+ "\", \"group\":" + group + ", \"author\":" + author + "}";
 	}
 
 }

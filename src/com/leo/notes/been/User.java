@@ -51,4 +51,11 @@ public class User extends BmobUser {
 		this.headerpic = headerpic;
 	}
 
+	@Override
+	public String toString() {
+		return "{\"age\":" + age + ", \"birthday\":\"" + birthday
+				+ "\", \"gender\":\"" + gender + "\", \"headerpic\":\""
+				+ headerpic + "\"}";
+	}
+
 }

@@ -47,8 +47,8 @@ public class Group extends BmobObject {
 
 	@Override
 	public String toString() {
-		return "Group [num=" + num + ", cover=" + cover + ", name=" + name
-				+ "]";
+		return "{\"num\":" + num + ", \"cover\":\"" + cover + "\", \"name\":\""
+				+ name + "\"}";
 	}
 
 }
