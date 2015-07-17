@@ -26,18 +26,28 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 
 	private View view;
 
+	/** 关于 */
 	@ViewInject(id = R.id.tv_aboutme)
 	private TextView aboutme;
+	/** 反馈 */
 	@ViewInject(id = R.id.tv_feedback)
 	private TextView feedback;
+	/** 设置 */
 	@ViewInject(id = R.id.tv_setting)
 	private TextView setting;
+	/** 清理缓存 */
 	@ViewInject(id = R.id.rl_clean)
 	private RelativeLayout clean;
+	/** 缓存大小 */
 	@ViewInject(id = R.id.tv_clean_size)
 	private TextView cleansize;
+	/** 版本 */
+	@ViewInject(id = R.id.rl_version)
+	private RelativeLayout version;
+	/** 版本名 */
 	@ViewInject(id = R.id.tv_version)
-	private TextView version;
+	private TextView versionname;
+	/** 注销 */
 	@ViewInject(id = R.id.tv_exit)
 	private TextView exit;
 
@@ -60,6 +70,11 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 	}
 
 	private void init() {
+		versionName = AppUtils.getVersionName(getActivity());
+		versionCode = AppUtils.getVersionCode(getActivity());
+		Log.i("AboutActivity", "版本名：" + versionName + "版本号：" + versionCode);
+		versionname.setText(versionName);
+		
 		User userInfo = BmobUser.getCurrentUser(getActivity(), User.class);
 		username.setText(userInfo.getUsername());
 		// 文件大小（单位：字节）
@@ -100,10 +115,9 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 			cleansize.setText("0B");
 			break;
 
-		case R.id.tv_version:
-			versionName = AppUtils.getVersionName(getActivity());
-			versionCode = AppUtils.getVersionCode(getActivity());
-			Log.i("AboutActivity", "版本名：" + versionName + "版本号：" + versionCode);
+		case R.id.rl_version:
+			showToast("检测版本");
+			versionname.setText(versionName);
 			break;
 
 		case R.id.tv_exit:
