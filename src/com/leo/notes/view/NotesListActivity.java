@@ -3,6 +3,7 @@ package com.leo.notes.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
@@ -54,6 +55,8 @@ public class NotesListActivity extends BaseActivity {
 
 	int color;
 
+	private CircularProgressDialog loading;
+
 	private NotesAdapter adapter;
 
 	private List<Notes> notesList = new ArrayList<Notes>();
@@ -72,6 +75,7 @@ public class NotesListActivity extends BaseActivity {
 	}
 
 	private void init() {
+		loading = CircularProgressDialog.show(context);
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
@@ -83,6 +87,7 @@ public class NotesListActivity extends BaseActivity {
 		User current_user = BmobUser.getCurrentUser(context, User.class);
 		author = current_user.getObjectId();
 
+		loading.show();
 		getList(author);
 	}
 
@@ -98,6 +103,7 @@ public class NotesListActivity extends BaseActivity {
 		query.findObjects(this, new FindListener<Notes>() {
 			@Override
 			public void onSuccess(List<Notes> object) {
+				loading.dismiss();
 				showToast("查询成功：共" + object.size() + "条数据。");
 				Log.i(TAG, object.toString());
 
@@ -117,6 +123,7 @@ public class NotesListActivity extends BaseActivity {
 
 			@Override
 			public void onError(int code, String msg) {
+				loading.dismiss();
 				showToast("查询失败：" + msg);
 			}
 		});
@@ -124,7 +131,8 @@ public class NotesListActivity extends BaseActivity {
 
 	public void itemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-
+		String notes_id = notesList.get(position).getObjectId();
+		openActivity(NotesInfoActivity.class, "id", notes_id, false);
 	}
 
 	public void add(View view) {
