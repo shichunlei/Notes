@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,12 +26,15 @@ public class MainFragmentActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.main)
 	private LinearLayout main;
-	
+
 	@ViewInject(id = R.id.ivTitleBtnLeft, click = "menu")
 	private ImageView ivTitleLeft;
 	@ViewInject(id = R.id.ivTitleName)
 	private TextView tvTitle;
-	
+
+	@ViewInject(id = R.id.notes, click = "notes")
+	private Button notes;
+
 	int color;
 
 	private long mExitTime;
@@ -76,6 +80,10 @@ public class MainFragmentActivity extends BaseActivity {
 		} else {
 			mSlidingMenu.toggle();
 		}
+	}
+
+	public void notes(View v) {
+		openActivity(NotesListActivity.class, false);
 	}
 
 	// 按下菜单键时
