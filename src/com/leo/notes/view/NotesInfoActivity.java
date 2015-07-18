@@ -1,5 +1,6 @@
 package com.leo.notes.view;
 
+import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
@@ -38,7 +39,11 @@ public class NotesInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.info_content)
 	private TextView tvContent;
 
+	private CircularProgressDialog loading;
+
 	int color;
+
+	String id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +56,9 @@ public class NotesInfoActivity extends BaseActivity {
 	}
 
 	private void init() {
-		String id = getStringExtra("id");
+		loading = CircularProgressDialog.show(context);
+
+		id = getStringExtra("id");
 		Log.i(TAG, id);
 
 		color = getResources().getColor(
@@ -62,6 +69,7 @@ public class NotesInfoActivity extends BaseActivity {
 		imgLeft.setImageResource(R.drawable.back);
 		imgRight.setImageResource(R.drawable.edit);
 
+		loading.show();
 		getNotesInfo(id);
 	}
 
@@ -71,6 +79,7 @@ public class NotesInfoActivity extends BaseActivity {
 
 			@Override
 			public void onSuccess(Notes object) {
+				loading.dismiss();
 				showToast(getString(R.string.q_success));
 				tvName.setText(object.getTitle());
 				tvContent.setText(object.getContent());
@@ -79,9 +88,10 @@ public class NotesInfoActivity extends BaseActivity {
 
 			@Override
 			public void onFailure(int code, String arg0) {
+				loading.dismiss();
 				showToast(getString(R.string.q_fail) + arg0);
+				Log.i(TAG, arg0);
 			}
-
 		});
 	}
 
@@ -90,6 +100,9 @@ public class NotesInfoActivity extends BaseActivity {
 	}
 
 	public void edit(View view) {
-		openActivity(NotesAddAndEditActivity.class, "tag", "edit", 1);
+		Bundle bundle = new Bundle();
+		bundle.putString("tag", "edit");
+		bundle.putString("id", id);
+		openActivity(NotesAddAndEditActivity.class, bundle, 1);
 	}
 }
