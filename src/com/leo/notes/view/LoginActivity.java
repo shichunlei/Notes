@@ -6,6 +6,7 @@ import scl.leo.library.utils.other.StringUtil;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,10 +21,12 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity {
 
+	private static final String TAG = "LoginActivity";
+
 	@ViewInject(id = R.id.login)
 	RelativeLayout login;
 
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	@ViewInject(id = R.id.btn_login, click = "login")
@@ -52,7 +55,7 @@ public class LoginActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		login.setBackgroundColor(color);
-		tvTitle.setText("登录");
+		tvTitle.setText(getString(R.string.login));
 		loading = CircularProgressDialog.show(context);
 	}
 
@@ -61,9 +64,9 @@ public class LoginActivity extends BaseActivity {
 		String pwd = etPwd.getText().toString().trim();
 
 		if (StringUtil.isEmpty(name)) {
-			showToast("账户不能为空");
+			showToast(getString(R.string.username_empty));
 		} else if (StringUtil.isEmpty(pwd)) {
-			showToast("密码不能为空");
+			showToast(getString(R.string.pwd_empty));
 		} else {
 			loading.show();
 			postLogin(name, pwd);
@@ -78,14 +81,15 @@ public class LoginActivity extends BaseActivity {
 			@Override
 			public void onSuccess() {
 				loading.dismiss();
-				showToast("登录成功");
+				showToast(getString(R.string.login_success));
 				openActivity(LoginPwdActivity.class, true);
 			}
 
 			@Override
 			public void onFailure(int code, String msg) {
 				loading.dismiss();
-				showToast("登录失败:" + msg);
+				showToast(getString(R.string.login_fail));
+				Log.i(TAG, msg);
 			}
 		});
 

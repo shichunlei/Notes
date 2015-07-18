@@ -186,6 +186,19 @@ public class BaseActivity extends FragmentActivity {
 	}
 
 	/**
+	 * 通过类名启动Activity，并且携带单个数据
+	 * 
+	 * @param pClass
+	 * @param key
+	 * @param value
+	 * @param isfinish
+	 */
+	protected void openActivity(Class<?> pClass, String key,
+			Serializable value, int i) {
+		showActivity(pClass, null, key, value, null, false, i);
+	}
+
+	/**
 	 * 通过类名启动Activity，并且含有Bundle数据
 	 * 
 	 * @param pClass

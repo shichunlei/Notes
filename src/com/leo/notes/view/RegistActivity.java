@@ -25,17 +25,16 @@ public class RegistActivity extends BaseActivity {
 	@ViewInject(id = R.id.regist)
 	RelativeLayout regist;
 
-	@ViewInject(id = R.id.ivTitleName)
-	private TextView tvTitle;
-
 	int color;
 
 	private static final String TAG = "RegistActivity";
 
 	private CircularProgressDialog loading;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
-	private ImageView ivTitleLeft;
+	@ViewInject(id = R.id.img_left, click = "back")
+	private ImageView imgLeft;
+	@ViewInject(id = R.id.tv_title)
+	private TextView tvTitle;
 
 	@ViewInject(id = R.id.et_regist_name)
 	private EditText etName;
@@ -61,8 +60,8 @@ public class RegistActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		regist.setBackgroundColor(color);
-		tvTitle.setText("注册");
-		ivTitleLeft.setImageResource(R.drawable.icon_back);
+		tvTitle.setText(getString(R.string.regist));
+		imgLeft.setImageResource(R.drawable.icon_back);
 
 		loading = CircularProgressDialog.show(context);
 	}
@@ -87,11 +86,11 @@ public class RegistActivity extends BaseActivity {
 		String repwd = etRePwd.getText().toString().trim();
 
 		if (StringUtil.isEmpty(name)) {
-			showToast("用户名不能为空");
+			showToast(getString(R.string.username_empty));
 		} else if (StringUtil.isEmpty(pwd)) {
-			showToast("密码不能为空");
+			showToast(getString(R.string.pwd_empty));
 		} else if (!StringUtil.pwdVal(pwd, repwd)) {
-			showToast("两次密码不一致");
+			showToast(getString(R.string.inconsistent_password));
 		} else {
 			loading.show();
 			postRegist(name, pwd);
@@ -114,14 +113,14 @@ public class RegistActivity extends BaseActivity {
 			@Override
 			public void onSuccess() {
 				loading.dismiss();
-				showToast("注册成功！");
+				showToast(getString(R.string.regist_success));
 				finish();
 			}
 
 			@Override
 			public void onFailure(int code, String msg) {
 				loading.dismiss();
-				showToast("注册失败！");
+				showToast(getString(R.string.regist_fail));
 				Log.i(TAG, msg);
 			}
 		});

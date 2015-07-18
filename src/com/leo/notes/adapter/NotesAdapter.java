@@ -54,9 +54,9 @@ public class NotesAdapter extends BaseAdapter {
 
 	private void bind(Notes item, View convertView) {
 		ViewHolder holder = (ViewHolder) convertView.getTag();
-		holder.content.setText("作者：" + item.getContent());
+		holder.content.setText(item.getContent());
 		holder.title.setText(item.getTitle());
-		holder.time.setText("发表时间：" + item.getCreatedAt());
+		holder.time.setText(item.getCreatedAt());
 	}
 
 	private View inflateIfRequired(View view, int position, ViewGroup parent) {

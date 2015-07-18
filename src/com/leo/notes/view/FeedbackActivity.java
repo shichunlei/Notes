@@ -18,9 +18,9 @@ public class FeedbackActivity extends BaseActivity {
 	@ViewInject(id = R.id.feedback)
 	private LinearLayout feedback;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
-	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.img_left, click = "back")
+	private ImageView imgLeft;
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	int color;
@@ -38,8 +38,8 @@ public class FeedbackActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		feedback.setBackgroundColor(color);
-		tvTitle.setText("反馈");
-		ivTitleLeft.setImageResource(R.drawable.icon_back);
+		tvTitle.setText(getString(R.string.feedback));
+		imgLeft.setImageResource(R.drawable.icon_back);
 	}
 
 	public void back(View v) {

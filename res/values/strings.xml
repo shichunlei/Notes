@@ -2,10 +2,10 @@
 <resources>
 
     <string name="app_name">彩虹记事</string>
-    <string name="action_key">密码</string>
+    <string name="password">密码</string>
     <string name="action_say">感悟</string>
     <string name="action_font">字体</string>
-    <string name="action_exit">退出</string>
+    <string name="exit">你还没有保存，确定要退出吗？</string>
     <string name="hello_world">就让往事随风~</string>
     <string name="back">欢迎回来~</string>
     <string name="mode_btn">模式</string>
@@ -18,7 +18,7 @@
     <string name="now_note">旧的记事</string>
     <string name="new_note">新的记事</string>
     <string name="content_hint">写点什么呢？</string>
-    <string name="save_btn">保存</string>
+    <string name="save">保存</string>
     <string name="zero_txt">0</string>
     <string name="grid_now">网格模式开启</string>
     <string name="list_now">列表模式开启</string>
@@ -27,21 +27,19 @@
     <string name="lock_now">记事已加锁</string>
     <string name="unlock_now">记事已解锁</string>
     <string name="title_hint">标题</string>
-    <string name="delete_btn">删除</string>
+    <string name="delete">删除</string>
     <string name="limit_count">余额</string>
     <string name="limit_time">限时</string>
-    <string name="alert_hint">提示</string>
+    
     <string name="back_hint">当前记事还未保存，是否保存？</string>
     <string name="delete_note">删除记事</string>
     <string name="delete_desc">现在删除记事吗？</string>
     <string name="note_deleted">记事已删除</string>
-    <string name="about_me">关于</string>
+    
     <string name="word_yes">是</string>
     <string name="word_no">否</string>
     <string name="word_time">天</string>
     <string name="word_count">次</string>
-    <string name="word_confirm">确定</string>
-    <string name="word_cancel">取消</string>
     <string name="word_today">今天</string>
     <string name="word_ago">天前</string>
     <string name="word_my">我的</string>
@@ -77,7 +75,68 @@
     <string name="refresh_txt">记事已刷新</string>
     <string name="left_txt">剩余</string>
     <string name="about_txt">彩虹记事 v1.0\r\n\r\n作者：leo\r\n邮箱：1558053958@qq.com\r\n\r\n欢迎交流，谢谢支持！</string>
+    
+    <string name="alert_hint">提示</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="_exit">再按一次退出程序</string>
+    
     <string name="man">男</string>
     <string name="women">女</string>
-
+    <string name="privacy">保密</string>
+    
+    <string name="add_notes">添加记事</string>
+    <string name="edit_notes">编辑记事</string>
+    <string name="q_success">查询成功</string>
+    <string name="q_fail">查询失败</string>
+    <string name="i_success">添加成功</string>
+    <string name="i_fail">添加失败</string>
+    <string name="u_success">更新成功</string>
+    <string name="u_fail">更新失败</string>
+    <string name="d_success">删除成功</string>
+    <string name="d_fail">删除失败</string>
+    
+    <string name="login">登录</string>
+    <string name="regist">注册</string>
+    
+    <string name="setting_pwd_success">密码设置成功！</string>
+    <string name="pwd_fail">密码错误！</string>
+    <string name="find_pwd">找回密码</string>
+    <string name="username_empty">账号不能为空！</string>
+    <string name="input_username">请输入账号</string>
+    <string name="input_name">请输入用户名</string>
+    <string name="input_email">请输入邮箱</string>
+    <string name="input_mobile">请输入手机号码</string>
+    <string name="input_gender">请选择性别</string>
+    <string name="input_birthday">请选择生日</string>
+    <string name="pwd_empty">密码不能为空！</string>
+    <string name="setting_pwd">请设置四位数字密码</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="reset_pwd">请输入密码</string>
+    <string name="inconsistent_password">两次密码不一致！</string>
+    <string name="email_format_error">邮箱格式错误！</string>
+    <string name="mobile_format_error">邮箱格式错误！</string>
+    
+    <string name="login_success">登录成功</string>
+    <string name="login_fail">登录失败</string>
+    <string name="regist_success">注册成功</string>
+    <string name="regist_fail">注册失败</string>
+    
+    <string name="personal_info">个人信息</string>
+    <string name="edit_personal_info">编辑信息</string>
+    
+    <string name="about_me">关于</string>
+    <string name="feedback">反馈</string>
+    <string name="setting">设置</string>
+    <string name="version">检测版本</string>
+    <string name="clean">清理缓存</string>
+    
+    <string name="version_success">登录成功</string>
+    <string name="version_fail">登录失败</string>
+    <string name="clean_success">缓存清理成功</string>
+    <string name="clean_fail">缓存清理失败</string>
+    
+    <string name="camera">相机选择</string>
+    <string name="album">相册选择</string>
+    
 </resources>

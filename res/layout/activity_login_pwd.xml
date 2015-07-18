@@ -327,7 +327,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="请输入安全锁密码"
+            android:text="@string/setting_pwd"
             android:textColor="#8e8e8e"
             android:textSize="20sp" />
     </RelativeLayout>

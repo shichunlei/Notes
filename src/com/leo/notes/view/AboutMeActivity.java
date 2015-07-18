@@ -18,9 +18,9 @@ public class AboutMeActivity extends BaseActivity {
 	@ViewInject(id = R.id.aboutme)
 	private LinearLayout aboutme;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
+	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	int color;
@@ -38,7 +38,7 @@ public class AboutMeActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		aboutme.setBackgroundColor(color);
-		tvTitle.setText("关于");
+		tvTitle.setText(R.string.about_me);
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 	}
 

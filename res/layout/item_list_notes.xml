@@ -7,18 +7,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@color/gray_font"
+        android:layout_margin="5dp"
+        android:background="@drawable/bg_border"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/notes_time"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical|left"
-            android:paddingLeft="10dp"
+            android:padding="5dp"
             android:singleLine="true"
-            android:text="2015.06"
+            android:text=""
             android:textSize="18sp" />
 
         <View
@@ -34,18 +34,21 @@
             <TextView
                 android:id="@+id/notes_title"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical|left"
-                android:paddingLeft="10dp"
+                android:padding="5dp"
                 android:singleLine="true"
-                android:text="TITLE"
+                android:text=""
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/notes_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:lineSpacingExtra="2dp"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="2"
+                android:padding="5dp"
                 android:text=""
                 android:textSize="18sp" />
         </LinearLayout>

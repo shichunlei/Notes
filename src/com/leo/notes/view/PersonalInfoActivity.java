@@ -26,7 +26,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.personal_info)
 	RelativeLayout info;
 
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	int color;
@@ -38,9 +38,9 @@ public class PersonalInfoActivity extends BaseActivity {
 
 	private CircularProgressDialog loading;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
+	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleBtnRigh, click = "edit")
+	@ViewInject(id = R.id.img_right, click = "edit")
 	private ImageView edit;
 
 	@ViewInject(id = R.id.tv_info_name)
@@ -56,7 +56,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_info_age)
 	private TextView tvAge;
 
-	private String gender = "保密";
+	private String gender = getString(R.string.privacy);
 	private int age;
 	private String nowday;
 	private String birthday;
@@ -77,7 +77,7 @@ public class PersonalInfoActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		info.setBackgroundColor(color);
-		tvTitle.setText("个人信息");
+		tvTitle.setText(getString(R.string.personal_info));
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 		edit.setImageResource(R.drawable.edit);
 
@@ -118,7 +118,7 @@ public class PersonalInfoActivity extends BaseActivity {
 				if (!StringUtil.isEmpty(gender)) {
 					tvGender.setText(gender);
 				} else {
-					tvGender.setText("未知");
+					tvGender.setText(getString(R.string.privacy));
 				}
 				if (!StringUtil.isEmpty(birthday)) {
 					tvBirthday.setText(birthday);

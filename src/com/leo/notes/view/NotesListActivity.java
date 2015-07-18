@@ -9,7 +9,6 @@ import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -42,13 +41,12 @@ public class NotesListActivity extends BaseActivity {
 	@ViewInject(id = R.id.notes_list)
 	private LinearLayout noteslist;
 
-	@ViewInject(id = R.id.ivTitleName)
-	private TextView tvTitle;
-
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "add")
+	@ViewInject(id = R.id.img_left, click = "add")
 	private ImageView imgLeft;
-	@ViewInject(id = R.id.ivTitleBtnRigh, click = "search")
+	@ViewInject(id = R.id.img_right, click = "search")
 	private ImageView imgRight;
+	@ViewInject(id = R.id.tv_title)
+	private TextView tvTitle;
 
 	@ViewInject(id = R.id.listview, itemClick = "itemClick")
 	private ListView listview;
@@ -61,8 +59,8 @@ public class NotesListActivity extends BaseActivity {
 
 	private List<Notes> notesList = new ArrayList<Notes>();
 
-	private long mExitTime;
 	private String author;
+	private String group;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,15 +84,22 @@ public class NotesListActivity extends BaseActivity {
 
 		User current_user = BmobUser.getCurrentUser(context, User.class);
 		author = current_user.getObjectId();
+		group = "KWRY555D";
 
 		loading.show();
-		getList(author);
+		getList(author, group);
 	}
 
-	private void getList(String author) {
+	/**
+	 * 得到notes列表
+	 * 
+	 * @param author
+	 * @param group
+	 */
+	private void getList(String author, String group) {
 		BmobQuery<Notes> query = new BmobQuery<Notes>();
 		query.addWhereEqualTo("author", author);
-		// query.addWhereEqualTo("group", "ghvKCCCm");
+		query.addWhereEqualTo("group", group);
 		// 返回50条数据，如果不加上这条语句，默认返回10条数据
 		query.setLimit(50);
 		// 希望同时查询该Notes的发布者的信息，以及该Notes的分组信息group，这里用到上面`include`的并列对象查询和内嵌对象的查询
@@ -104,7 +109,7 @@ public class NotesListActivity extends BaseActivity {
 			@Override
 			public void onSuccess(List<Notes> object) {
 				loading.dismiss();
-				showToast("查询成功：共" + object.size() + "条数据。");
+				showToast("共" + object.size() + "条数据。");
 				Log.i(TAG, object.toString());
 
 				if (object.size() > 0) {
@@ -136,26 +141,10 @@ public class NotesListActivity extends BaseActivity {
 	}
 
 	public void add(View view) {
-		openActivity(NotesAddAndEditActivity.class, "tag", "add", false);
+		openActivity(NotesAddAndEditActivity.class, "tag", "add", 1);
 	}
 
 	public void search(View view) {
 
-	}
-
-	// 按下菜单键时
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			// 判断两次点击的时间间隔（默认设置为2秒）
-			if ((System.currentTimeMillis() - mExitTime) > 2000) {
-				showToast("再按一次退出程序");
-				mExitTime = System.currentTimeMillis();
-			} else {
-				System.exit(0);
-			}
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
 	}
 }

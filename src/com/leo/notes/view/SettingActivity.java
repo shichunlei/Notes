@@ -17,12 +17,12 @@ public class SettingActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.setting)
 	private LinearLayout setting;
-	
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
-	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleName)
+
+	@ViewInject(id = R.id.img_left, click = "back")
+	private ImageView imgLeft;
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
-	
+
 	int color;
 
 	@Override
@@ -38,8 +38,8 @@ public class SettingActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		setting.setBackgroundColor(color);
-		tvTitle.setText("设置");
-		ivTitleLeft.setImageResource(R.drawable.icon_back);
+		tvTitle.setText(getString(R.string.setting));
+		imgLeft.setImageResource(R.drawable.icon_back);
 	}
 
 	public void back(View v) {

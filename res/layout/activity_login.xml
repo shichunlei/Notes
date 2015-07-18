@@ -25,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="60dp"
                 android:background="@drawable/bg_border"
                 android:orientation="vertical"
                 android:padding="3dp" >
@@ -33,7 +32,7 @@
                 <EditText
                     android:id="@+id/et_login_name"
                     style="@style/login_edittext"
-                    android:hint="输入用户名或邮箱" />
+                    android:hint="@string/input_username" />
 
                 <View
                     android:layout_width="match_parent"
@@ -43,7 +42,7 @@
                 <EditText
                     android:id="@+id/et_login_pwd"
                     style="@style/login_edittext"
-                    android:hint="输入密码"
+                    android:hint="@string/input_pwd"
                     android:inputType="textPassword" />
             </LinearLayout>
 
@@ -61,7 +60,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/icon_button_bg"
-                    android:text="注册"
+                    android:text="@string/regist"
                     android:textColor="@color/white"
                     android:textSize="17sp" />
 
@@ -72,7 +71,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/icon_button_bg"
-                    android:text="登录"
+                    android:text="@string/login"
                     android:textColor="@color/white"
                     android:textSize="17sp" />
             </LinearLayout>

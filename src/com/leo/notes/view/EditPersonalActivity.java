@@ -45,9 +45,6 @@ public class EditPersonalActivity extends BaseActivity {
 	@ViewInject(id = R.id.personal_edit)
 	RelativeLayout edit;
 
-	@ViewInject(id = R.id.ivTitleName)
-	private TextView tvTitle;
-
 	int color;
 
 	private static final String TAG = "EditPersonalActivity";
@@ -61,10 +58,12 @@ public class EditPersonalActivity extends BaseActivity {
 
 	private CircularProgressDialog loading;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
+	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleBtnRigh, click = "save")
+	@ViewInject(id = R.id.img_right, click = "save")
 	private ImageView save;
+	@ViewInject(id = R.id.tv_title)
+	private TextView tvTitle;
 
 	@ViewInject(id = R.id.et_edit_name)
 	private EditText etName;
@@ -77,7 +76,7 @@ public class EditPersonalActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_edit_gender, click = "selectGender")
 	private TextView tvGender;
 
-	private String gender = "保密";
+	private String gender = getString(R.string.privacy);
 	private int age;
 	private String nowday;
 	private String birthday;
@@ -119,7 +118,7 @@ public class EditPersonalActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
 		edit.setBackgroundColor(color);
-		tvTitle.setText("编辑个人信息");
+		tvTitle.setText(getString(R.string.edit_personal_info));
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 		save.setImageResource(R.drawable.save);
 
@@ -284,7 +283,7 @@ public class EditPersonalActivity extends BaseActivity {
 				if (!StringUtil.isEmpty(gender)) {
 					tvGender.setText(gender);
 				} else {
-					tvGender.setText("未知");
+					tvGender.setText(getString(R.string.privacy));
 				}
 				if (!StringUtil.isEmpty(birthday)) {
 					tvBirthday.setText(birthday);
@@ -352,12 +351,13 @@ public class EditPersonalActivity extends BaseActivity {
 			public void onSuccess() {
 				loading.dismiss();
 				finish();
-				showToast("更新成功！");
+				showToast(getString(R.string.u_success));
 			}
 
 			@Override
 			public void onFailure(int code, String msg) {
 				Log.i(TAG, msg);
+				showToast(getString(R.string.u_fail));
 				loading.dismiss();
 			}
 		});
@@ -392,7 +392,7 @@ public class EditPersonalActivity extends BaseActivity {
 						new OnSheetItemClickListener() {
 							@Override
 							public void onClick(int which) {
-								gender = "男";
+								gender = getString(R.string.man);
 								tvGender.setText(getString(R.string.man));
 							}
 						})
@@ -400,7 +400,7 @@ public class EditPersonalActivity extends BaseActivity {
 						new OnSheetItemClickListener() {
 							@Override
 							public void onClick(int which) {
-								gender = "女";
+								gender = getString(R.string.women);
 								tvGender.setText(getString(R.string.women));
 							}
 						}).show();

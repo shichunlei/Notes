@@ -22,7 +22,7 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/add_photo"
+            android:src="@drawable/ic_launcher"
             roundimage:border_color="@color/base_black_gray"
             roundimage:border_width="4dp" />
     </RelativeLayout>
@@ -44,7 +44,7 @@
             <EditText
                 android:id="@+id/et_edit_name"
                 style="@style/login_edittext"
-                android:hint="输入用户名" />
+                android:hint="@string/input_name" />
 
             <View
                 android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             <EditText
                 android:id="@+id/et_edit_email"
                 style="@style/login_edittext"
-                android:hint="输入邮箱"
+                android:hint="@string/input_email"
                 android:inputType="textEmailAddress" />
 
             <View
@@ -65,7 +65,7 @@
             <EditText
                 android:id="@+id/et_edit_mobile"
                 style="@style/login_edittext"
-                android:hint="输入手机号码"
+                android:hint="@string/input_mobile"
                 android:inputType="phone" />
 
             <View
@@ -77,7 +77,7 @@
                 android:id="@+id/tv_edit_gender"
                 style="@style/login_edittext"
                 android:gravity="center"
-                android:text="选择性别" />
+                android:text="@string/input_gender" />
 
             <View
                 android:layout_width="match_parent"
@@ -88,7 +88,7 @@
                 android:id="@+id/tv_edit_birthday"
                 style="@style/login_edittext"
                 android:gravity="center"
-                android:text="生日" />
+                android:text="@string/input_birthday" />
         </LinearLayout>
     </LinearLayout>
 

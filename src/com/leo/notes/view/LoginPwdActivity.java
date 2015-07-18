@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.leo.notes.R;
 import com.leo.notes.util.Constants;
@@ -24,7 +23,7 @@ public class LoginPwdActivity extends BaseActivity {
 	@ViewInject(id = R.id.login)
 	LinearLayout login;
 
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	@ViewInject(id = R.id.tip)
@@ -67,14 +66,14 @@ public class LoginPwdActivity extends BaseActivity {
 		login.setBackgroundColor(color);
 		layout_keyboard.setBackgroundColor(color);
 		pfild.setBackgroundColor(color);
-		tvTitle.setText("登录");
+		tvTitle.setText(getString(R.string.login));
 
 		String password = (String) SPUtils.get(context, "password", "nothing",
 				Constants.PASSWORD);
 		if ("nothing".equals(password)) {
-			tip.setText("请设置密码");
+			tip.setText(getString(R.string.setting_pwd));
 		} else {
-			tip.setText("请输入密码");
+			tip.setText(getString(R.string.input_pwd));
 		}
 	}
 
@@ -173,7 +172,7 @@ public class LoginPwdActivity extends BaseActivity {
 					Constants.PASSWORD);
 			if ("nothing".equals(pwd)) {
 				SPUtils.put(context, "password", password, Constants.PASSWORD);
-				Toast.makeText(this, "密码设置成功！", Toast.LENGTH_SHORT).show();
+				showToast(getString(R.string.setting_pwd_success));
 				openActivity(MainFragmentActivity.class, true);
 			} else if (password.equals(pwd)) {
 				openActivity(MainFragmentActivity.class, true);
@@ -181,7 +180,7 @@ public class LoginPwdActivity extends BaseActivity {
 				Animation anim = AnimationUtils.loadAnimation(context,
 						R.anim.myanim);
 				pfild.startAnimation(anim);
-				tip.setText("密码不正确！");
+				tip.setText(getString(R.string.pwd_fail));
 				anim.setAnimationListener(new AnimationListener() {
 
 					@Override
@@ -194,7 +193,7 @@ public class LoginPwdActivity extends BaseActivity {
 
 					@Override
 					public void onAnimationEnd(Animation animation) {
-						tip.setText("请输入密码");
+						tip.setText(getString(R.string.setting_pwd));
 						p4.setText("");
 						p3.setText("");
 						p2.setText("");

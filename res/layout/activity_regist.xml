@@ -32,7 +32,7 @@
                 <EditText
                     android:id="@+id/et_regist_name"
                     style="@style/login_edittext"
-                    android:hint="输入用户名" />
+                    android:hint="@string/input_name" />
 
                 <View
                     android:layout_width="match_parent"
@@ -42,7 +42,7 @@
                 <EditText
                     android:id="@+id/et_regist_pwd"
                     style="@style/login_edittext"
-                    android:hint="输入密码"
+                    android:hint="@string/input_pwd"
                     android:inputType="textPassword" />
 
                 <View
@@ -53,7 +53,7 @@
                 <EditText
                     android:id="@+id/et_regist_repwd"
                     style="@style/login_edittext"
-                    android:hint="确认密码"
+                    android:hint="@string/reset_pwd"
                     android:inputType="textPassword" />
             </LinearLayout>
 
@@ -63,7 +63,7 @@
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
                 android:background="@drawable/icon_button_bg"
-                android:text="注册"
+                android:text="@string/regist"
                 android:textColor="@color/white"
                 android:textSize="17sp" />
         </LinearLayout>

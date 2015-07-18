@@ -18,9 +18,9 @@ public class FindPwdActivity extends BaseActivity {
 	@ViewInject(id = R.id.findpwd)
 	private LinearLayout findpwd;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
-	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.img_left, click = "back")
+	private ImageView imgLeft;
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	int color;
@@ -38,8 +38,8 @@ public class FindPwdActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		findpwd.setBackgroundColor(color);
-		tvTitle.setText("找回密码");
-		ivTitleLeft.setImageResource(R.drawable.icon_back);
+		tvTitle.setText(getString(R.string.find_pwd));
+		imgLeft.setImageResource(R.drawable.icon_back);
 	}
 
 	public void back(View v) {

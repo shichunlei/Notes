@@ -26,13 +26,10 @@ public class NotesGroupActivity extends BaseActivity {
 	@ViewInject(id = R.id.notesgroup)
 	private LinearLayout notesgroup;
 
-	@ViewInject(id = R.id.ivTitleName)
-	private TextView tvTitle;
-
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "add")
+	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
-	@ViewInject(id = R.id.ivTitleBtnRigh, click = "search")
-	private ImageView imgRight;
+	@ViewInject(id = R.id.tv_title)
+	private TextView tvTitle;
 
 	int color;
 
@@ -52,16 +49,11 @@ public class NotesGroupActivity extends BaseActivity {
 						Constants.COLOR));
 		notesgroup.setBackgroundColor(color);
 		tvTitle.setText("我的分类");
-		imgLeft.setImageResource(R.drawable.add);
-		imgRight.setImageResource(R.drawable.search);
+		imgLeft.setImageResource(R.drawable.icon_back);
 	}
 
-	public void add(View view) {
-		openActivity(NotesAddAndEditActivity.class, "tag", "add", false);
-	}
-
-	public void search(View view) {
-
+	public void back(View view) {
+		finish();
 	}
 
 }

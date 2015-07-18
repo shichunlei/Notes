@@ -2,9 +2,12 @@ package com.leo.notes.view;
 
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
+import scl.leo.library.dialog.AlertDialog;
 import scl.leo.library.utils.other.SPUtils;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,13 +21,12 @@ public class NotesAddAndEditActivity extends BaseActivity {
 	@ViewInject(id = R.id.notesedit)
 	private LinearLayout notesedit;
 
-	@ViewInject(id = R.id.ivTitleName)
-	private TextView tvTitle;
-
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
+	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
-	@ViewInject(id = R.id.ivTitleBtnRigh, click = "save")
+	@ViewInject(id = R.id.img_right, click = "save")
 	private ImageView imgRight;
+	@ViewInject(id = R.id.tv_title)
+	private TextView tvTitle;
 
 	int color;
 
@@ -40,9 +42,9 @@ public class NotesAddAndEditActivity extends BaseActivity {
 
 	private void init() {
 		if (getStringExtra("tag").equals("add")) {
-			tvTitle.setText("彩虹记事");
+			tvTitle.setText(R.string.add_notes);
 		} else if (getStringExtra("tag").equals("edit")) {
-			tvTitle.setText("title");
+			tvTitle.setText(R.string.edit_notes);
 		}
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
@@ -54,10 +56,41 @@ public class NotesAddAndEditActivity extends BaseActivity {
 	}
 
 	public void back(View view) {
-		finish();
+		showDialog();
+	}
+
+	private void showDialog() {
+		new AlertDialog(context)
+				.builder()
+				.setTitle(getString(R.string.alert_hint))
+				.setMsg(getString(R.string.exit))
+				.setPositiveButton(getString(R.string.sure),
+						new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+								finish();
+							}
+						})
+				.setNegativeButton(getString(R.string.cancel),
+						new OnClickListener() {
+							@Override
+							public void onClick(View v) {
+
+							}
+						}).show();
 	}
 
 	public void save(View view) {
 
+	}
+
+	// 按下菜单键时
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			showDialog();
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

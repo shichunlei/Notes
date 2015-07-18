@@ -111,12 +111,12 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 
 		case R.id.rl_clean:
 			BmobPro.getInstance(context).clearCache();
-			showToast("缓存清理成功");
+			showToast(getString(R.string.clean_success));
 			cleansize.setText("0B");
 			break;
 
 		case R.id.rl_version:
-			showToast("检测版本");
+			showToast(getString(R.string.version));
 			versionname.setText(versionName);
 			break;
 

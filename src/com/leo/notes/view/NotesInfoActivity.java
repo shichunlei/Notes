@@ -24,13 +24,19 @@ public class NotesInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.notesinfo)
 	private LinearLayout notesinfo;
 
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.img_left, click = "back")
+	private ImageView imgLeft;
+	@ViewInject(id = R.id.img_right, click = "edit")
+	private ImageView imgRight;
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "back")
-	private ImageView imgLeft;
-	@ViewInject(id = R.id.ivTitleBtnRigh, click = "edit")
-	private ImageView imgRight;
+	@ViewInject(id = R.id.info_title)
+	private TextView tvName;
+	@ViewInject(id = R.id.info_time)
+	private TextView tvTime;
+	@ViewInject(id = R.id.info_content)
+	private TextView tvContent;
 
 	int color;
 
@@ -65,13 +71,15 @@ public class NotesInfoActivity extends BaseActivity {
 
 			@Override
 			public void onSuccess(Notes object) {
-				showToast("查询成功：");
-
+				showToast(getString(R.string.q_success));
+				tvName.setText(object.getTitle());
+				tvContent.setText(object.getContent());
+				tvTime.setText(object.getCreatedAt());
 			}
 
 			@Override
 			public void onFailure(int code, String arg0) {
-				showToast("查询失败：" + arg0);
+				showToast(getString(R.string.q_fail) + arg0);
 			}
 
 		});
@@ -82,6 +90,6 @@ public class NotesInfoActivity extends BaseActivity {
 	}
 
 	public void edit(View view) {
-		openActivity(NotesAddAndEditActivity.class, false);
+		openActivity(NotesAddAndEditActivity.class, "tag", "edit", 1);
 	}
 }

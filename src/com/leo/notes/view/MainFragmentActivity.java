@@ -27,9 +27,9 @@ public class MainFragmentActivity extends BaseActivity {
 	@ViewInject(id = R.id.main)
 	private LinearLayout main;
 
-	@ViewInject(id = R.id.ivTitleBtnLeft, click = "menu")
+	@ViewInject(id = R.id.img_left, click = "menu")
 	private ImageView ivTitleLeft;
-	@ViewInject(id = R.id.ivTitleName)
+	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
 	@ViewInject(id = R.id.notes, click = "notes")
@@ -98,7 +98,7 @@ public class MainFragmentActivity extends BaseActivity {
 			} else {
 				// 判断两次点击的时间间隔（默认设置为2秒）
 				if ((System.currentTimeMillis() - mExitTime) > 2000) {
-					showToast("再按一次退出程序");
+					showToast(getString(R.string._exit));
 					mExitTime = System.currentTimeMillis();
 				} else {
 					System.exit(0);
