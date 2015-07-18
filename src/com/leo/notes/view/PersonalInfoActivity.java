@@ -138,7 +138,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	}
 
 	public void edit(View v) {
-		openActivity(EditPersonalActivity.class, 1);
+		openActivity(PersonalEditActivity.class, 1);
 	}
 
 	/**

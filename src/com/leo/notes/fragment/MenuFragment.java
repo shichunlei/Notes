@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobUser;
@@ -56,6 +57,9 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 	@ViewInject(id = R.id.img_headerpic)
 	private HeaderImageView headpic;
 
+	@ViewInject(id = R.id.ll_personal_info)
+	private LinearLayout personal_info;
+
 	private String versionName;
 	private int versionCode;
 
@@ -91,6 +95,7 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 		clean.setOnClickListener(this);
 		version.setOnClickListener(this);
 		exit.setOnClickListener(this);
+		personal_info.setOnClickListener(this);
 	}
 
 	@Override
@@ -126,6 +131,10 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 			BmobUser currentUser = BmobUser.getCurrentUser(getActivity()); // 现在的currentUser是null了
 			Log.i("currentUser", currentUser + "");
 			openActivity(LoginActivity.class, true);
+			break;
+
+		case R.id.ll_personal_info:
+			openActivity(PersonalInfoActivity.class, false);
 			break;
 
 		default:

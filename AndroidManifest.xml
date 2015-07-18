@@ -28,6 +28,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- 欢迎界面 -->
         <activity
             android:name="com.leo.notes.view.WelcomeActivity"
             android:label="@string/app_name" >
@@ -37,29 +39,51 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 主页 -->
         <activity android:name="com.leo.notes.view.MainFragmentActivity" >
         </activity>
+
+        <!-- 记事分组 -->
+        <activity android:name="com.leo.notes.view.NotesGroupActivity" >
+        </activity>
+        <!-- 记事列表 -->
         <activity android:name="com.leo.notes.view.NotesListActivity" >
         </activity>
-        <activity android:name="com.leo.notes.view.LoginPwdActivity" >
-        </activity>
-        <activity android:name="com.leo.notes.view.SetpwdActivity" >
-        </activity>
-        <activity android:name="com.leo.notes.view.AboutMeActivity" >
-        </activity>
-        <activity android:name="com.leo.notes.view.FeedbackActivity" >
-        </activity>
+        <!-- 记事详情 -->
         <activity android:name="com.leo.notes.view.NotesInfoActivity" >
         </activity>
+        <!-- 添加/编辑记事 -->
         <activity android:name="com.leo.notes.view.NotesAddAndEditActivity" >
         </activity>
+
+        <!-- 密码登录 -->
+        <activity android:name="com.leo.notes.view.LoginPwdActivity" >
+        </activity>
+        <!-- 注册 -->
         <activity android:name="com.leo.notes.view.RegistActivity" >
         </activity>
+        <!-- 登录 -->
         <activity android:name="com.leo.notes.view.LoginActivity" >
         </activity>
-        <activity android:name="com.leo.notes.view.EditPersonalActivity" >
+        <!-- 找回密码 -->
+        <activity android:name="com.leo.notes.view.FindPwdActivity" >
         </activity>
+
+        <!-- 关于 -->
+        <activity android:name="com.leo.notes.view.AboutMeActivity" >
+        </activity>
+        <!-- 反馈 -->
+        <activity android:name="com.leo.notes.view.FeedbackActivity" >
+        </activity>
+        <!-- 设置 -->
         <activity android:name="com.leo.notes.view.SettingActivity" >
+        </activity>
+
+        <!-- 个人信息 -->
+        <activity android:name="com.leo.notes.view.PersonalInfoActivity" >
+        </activity>
+        <!-- 编辑个人信息 -->
+        <activity android:name="com.leo.notes.view.PersonalEditActivity" >
         </activity>
     </application>
 

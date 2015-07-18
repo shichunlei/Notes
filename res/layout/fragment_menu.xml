@@ -9,31 +9,36 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <LinearLayout
-        android:id="@+id/llRoot"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
-        <scl.leo.library.image.HeaderImageView
-            android:id="@+id/img_headerpic"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/ic_launcher"
-            roundimage:border_color="@color/base_black_gray"
-            roundimage:border_width="4dp" />
-
-        <TextView
-            android:id="@+id/tv_username"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:singleLine="true"
-            android:text=""
-            android:textColor="#ffccccc6"
-            android:textSize="18sp" />
+            android:orientation="vertical" android:id="@+id/ll_personal_info">
+
+            <scl.leo.library.image.HeaderImageView
+                android:id="@+id/img_headerpic"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_launcher"
+                roundimage:border_color="@color/base_black_gray"
+                roundimage:border_width="4dp" />
+
+            <TextView
+                android:id="@+id/tv_username"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text=""
+                android:textColor="#ffccccc6"
+                android:textSize="18sp" />
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_aboutme"

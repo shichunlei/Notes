@@ -40,7 +40,7 @@ import com.leo.notes.been.User;
 import com.leo.notes.util.*;
 import com.leo.notes.view.base.BaseActivity;
 
-public class EditPersonalActivity extends BaseActivity {
+public class PersonalEditActivity extends BaseActivity {
 
 	@ViewInject(id = R.id.personal_edit)
 	RelativeLayout edit;
