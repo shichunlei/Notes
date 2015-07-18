@@ -74,7 +74,7 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 		versionCode = AppUtils.getVersionCode(getActivity());
 		Log.i("AboutActivity", "版本名：" + versionName + "版本号：" + versionCode);
 		versionname.setText(versionName);
-		
+
 		User userInfo = BmobUser.getCurrentUser(getActivity(), User.class);
 		username.setText(userInfo.getUsername());
 		// 文件大小（单位：字节）
@@ -84,7 +84,7 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 		// 对文件大小进行格式化，转化为'B'、'K'、'M'、'G'等单位
 		String formatSize = BmobPro.getInstance(getActivity())
 				.getCacheFormatSize();
-		cleansize.setText(formatSize + "B");
+		cleansize.setText(formatSize);
 		aboutme.setOnClickListener(this);
 		feedback.setOnClickListener(this);
 		setting.setOnClickListener(this);
