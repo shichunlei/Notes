@@ -4,6 +4,7 @@ import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -65,8 +66,8 @@ public class NotesInfoActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		notesinfo.setBackgroundColor(color);
-		tvTitle.setText("彩虹记事");
-		imgLeft.setImageResource(R.drawable.back);
+		tvTitle.setText(getString(R.string.app_name));
+		imgLeft.setImageResource(R.drawable.icon_back);
 		imgRight.setImageResource(R.drawable.edit);
 
 		loading.show();
@@ -80,6 +81,7 @@ public class NotesInfoActivity extends BaseActivity {
 			@Override
 			public void onSuccess(Notes object) {
 				loading.dismiss();
+				setResult(RESULT_OK);
 				showToast(getString(R.string.q_success));
 				tvName.setText(object.getTitle());
 				tvContent.setText(object.getContent());
@@ -103,6 +105,19 @@ public class NotesInfoActivity extends BaseActivity {
 		Bundle bundle = new Bundle();
 		bundle.putString("tag", "edit");
 		bundle.putString("id", id);
-		openActivity(NotesAddAndEditActivity.class, bundle, 1);
+		openActivity(NotesAddAndEditActivity.class, bundle, Constants.INFO_EDIT);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode != RESULT_OK) {
+			return;
+		}
+		switch (requestCode) {
+		case Constants.INFO_EDIT:
+			getNotesInfo(id);
+			break;
+		}
 	}
 }

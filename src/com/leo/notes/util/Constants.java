@@ -43,4 +43,8 @@ public class Constants {
 	public static final String PASSWORD = "scl_login_password";
 	/** 颜色值 */
 	public static final String COLOR = "scl_color";
+
+	public static final int LIST_ADD = 2;
+	public static final int INFO_EDIT = 1;
+	public static final int LIST_INFO = 3;
 }

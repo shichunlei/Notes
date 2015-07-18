@@ -211,6 +211,17 @@ public class BaseActivity extends FragmentActivity {
 	}
 
 	/**
+	 * 通过类名启动Activity，并且含有Bundle数据
+	 * 
+	 * @param pClass
+	 * @param pBundle
+	 * @param isfinish
+	 */
+	protected void openActivity(Class<?> pClass, Bundle pBundle, int i) {
+		showActivity(pClass, pBundle, null, null, null, false, i);
+	}
+
+	/**
 	 * 通过className启动Activity
 	 * 
 	 * @param className

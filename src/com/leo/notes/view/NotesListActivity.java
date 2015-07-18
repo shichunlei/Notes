@@ -7,6 +7,7 @@ import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -137,11 +138,31 @@ public class NotesListActivity extends BaseActivity {
 	public void itemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		String notes_id = notesList.get(position).getObjectId();
-		openActivity(NotesInfoActivity.class, "id", notes_id, false);
+		openActivity(NotesInfoActivity.class, "id", notes_id,
+				Constants.LIST_INFO);
 	}
 
 	public void add(View view) {
-		openActivity(NotesAddAndEditActivity.class, "tag", "add", 1);
+		openActivity(NotesAddAndEditActivity.class, "tag", "add",
+				Constants.LIST_ADD);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode != RESULT_OK) {
+			return;
+		}
+		switch (requestCode) {
+		case Constants.LIST_ADD:
+			loading.show();
+			getList(author, group);
+			break;
+		case Constants.LIST_INFO:
+			loading.show();
+			getList(author, group);
+			break;
+		}
 	}
 
 	public void search(View view) {
