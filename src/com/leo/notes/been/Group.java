@@ -16,6 +16,8 @@ public class Group extends BmobObject {
 	private BmobFile cover;
 	/** 分组名称 */
 	private String name;
+	/**  */
+	private User author;
 
 	public int getNum() {
 		return num;
@@ -45,10 +47,18 @@ public class Group extends BmobObject {
 		this.name = name;
 	}
 
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
 	@Override
 	public String toString() {
-		return "{\"num\":" + num + ", \"cover\":\"" + cover + "\", \"name\":\""
-				+ name + "\"}";
+		return "{\"num\":" + num + "\"author\":" + author + ", \"cover\":\""
+				+ cover + "\", \"name\":\"" + name + "\"}";
 	}
 
 }
