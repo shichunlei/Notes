@@ -15,7 +15,8 @@
         android:id="@+id/rl_top"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:layout_below="@+id/top_title" >
+        android:layout_below="@+id/top_title"
+        android:background="@color/white" >
 
         <scl.leo.library.image.HeaderImageView
             android:id="@+id/img_info_add_photo"
@@ -31,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/rl_top"
+        android:background="@color/white"
         android:orientation="vertical" >
 
         <LinearLayout

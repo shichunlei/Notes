@@ -2,7 +2,9 @@
 <lint>
     <issue id="InflateParams">
         <ignore path="src/com/leo/notes/adapter/NotesAdapter.java" />
+        <ignore path="src/com/leo/notes/customview/MyDialog.java" />
         <ignore path="src/com/leo/notes/view/EditPersonalActivity.java" />
+        <ignore path="src/com/leo/notes/view/PersonalEditActivity.java" />
         <ignore path="src/com/leo/notes/view/RegistActivity.java" />
         <ignore path="src/com/leo/notes/view/RegistActivity.java" />
     </issue>

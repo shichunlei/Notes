@@ -6,6 +6,7 @@ import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.image.HeaderImageView;
 import scl.leo.library.utils.other.SPUtils;
 import scl.leo.library.utils.other.StringUtil;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,7 +57,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_info_age)
 	private TextView tvAge;
 
-	private String gender = getString(R.string.privacy);
+	private String gender = "";
 	private int age;
 	private String nowday;
 	private String birthday;
@@ -66,13 +67,14 @@ public class PersonalInfoActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_personal_info);
-
 		FinalActivity.initInjectedView(this);
-
 		init();
 	}
 
 	private void init() {
+		User current_user = BmobUser.getCurrentUser(context, User.class);
+		objectId = current_user.getObjectId();
+
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
@@ -86,16 +88,19 @@ public class PersonalInfoActivity extends BaseActivity {
 		getPersonalInfo(objectId);
 	}
 
+	/**
+	 * 得到当前登录用户信息
+	 * 
+	 * @param objectId
+	 */
 	private void getPersonalInfo(String objectId) {
-		User current_user = BmobUser.getCurrentUser(this, User.class);
-		objectId = current_user.getObjectId();
-
 		BmobQuery<User> query = new BmobQuery<User>();
 		query.getObject(this, objectId, new GetListener<User>() {
 
 			@Override
 			public void onSuccess(User user) {
 				loading.dismiss();
+				setResult(RESULT_OK);
 				age = user.getAge();
 				birthday = user.getBirthday();
 				gender = user.getGender();
@@ -109,9 +114,7 @@ public class PersonalInfoActivity extends BaseActivity {
 				if (!StringUtil.isEmpty(email)) {
 					tvEmail.setText(email);
 				}
-				if (0 == age) {
-					tvAge.setText("" + age);
-				}
+				tvAge.setText("" + age);
 				if (!StringUtil.isEmpty(mobile)) {
 					tvMobile.setText(mobile);
 				}
@@ -132,13 +135,25 @@ public class PersonalInfoActivity extends BaseActivity {
 				loading.dismiss();
 				Log.i(TAG, msg);
 			}
-
 		});
-
 	}
 
 	public void edit(View v) {
-		openActivity(PersonalEditActivity.class, 1);
+		openActivity(PersonalEditActivity.class, Constants.PERSONAL_EDIT);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode != RESULT_OK) {
+			return;
+		}
+		switch (requestCode) {
+		case Constants.PERSONAL_EDIT:
+			loading.show();
+			getPersonalInfo(objectId);
+			break;
+		}
 	}
 
 	/**

@@ -10,8 +10,12 @@ import scl.leo.library.dialog.ActionSheetDialog.OnSheetItemClickListener;
 import scl.leo.library.dialog.ActionSheetDialog.SheetItemColor;
 import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.image.HeaderImageView;
+import scl.leo.library.selectTime.ScreenInfo;
 import scl.leo.library.utils.other.SPUtils;
 import scl.leo.library.utils.other.StringUtil;
+import scl.leo.library.utils.other.TimeUtils;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -37,6 +41,7 @@ import cn.bmob.v3.listener.UpdateListener;
 
 import com.leo.notes.R;
 import com.leo.notes.been.User;
+import com.leo.notes.customview.WheelMain;
 import com.leo.notes.util.*;
 import com.leo.notes.view.base.BaseActivity;
 
@@ -48,10 +53,6 @@ public class PersonalEditActivity extends BaseActivity {
 	int color;
 
 	private static final String TAG = "EditPersonalActivity";
-
-	private static final int ALBUM = 1;
-	private static final int CAMERA = 2;
-	private static final int ZOOM = 3;
 
 	@ViewInject(id = R.id.img_edit_add_photo, click = "addPhone")
 	private HeaderImageView phone;
@@ -76,10 +77,12 @@ public class PersonalEditActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_edit_gender, click = "selectGender")
 	private TextView tvGender;
 
-	private String gender = getString(R.string.privacy);
+	private String gender = "";
 	private int age;
 	private String nowday;
+	private String nowYear;
 	private String birthday;
+	private int birthYear;
 	private String objectId;
 
 	/** 是否选择头像 */
@@ -99,6 +102,12 @@ public class PersonalEditActivity extends BaseActivity {
 	/** 调用相机拍摄照片的名字(临时) */
 	private String takePicturePath;
 
+	WheelMain wheelMain;
+
+	int year, month, day;
+
+	LayoutInflater inflater;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -110,9 +119,15 @@ public class PersonalEditActivity extends BaseActivity {
 	}
 
 	private void init() {
+		loading = CircularProgressDialog.show(context);
+
 		User current_user = BmobUser.getCurrentUser(this, User.class);
 		objectId = current_user.getObjectId();
 
+		nowday = TimeUtils.nowDate();
+		nowYear = TimeUtils.nowYear();
+
+		loading.show();
 		getPersonalInfo(objectId);
 
 		color = getResources().getColor(
@@ -121,8 +136,6 @@ public class PersonalEditActivity extends BaseActivity {
 		tvTitle.setText(getString(R.string.edit_personal_info));
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 		save.setImageResource(R.drawable.save);
-
-		loading = CircularProgressDialog.show(context);
 
 		popview = LayoutInflater.from(context).inflate(R.layout.pop_add_phone,
 				null);
@@ -144,7 +157,7 @@ public class PersonalEditActivity extends BaseActivity {
 				intent.setDataAndType(
 						MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
 				takePicturePath = getIntent().getStringExtra("data");
-				startActivityForResult(intent, ALBUM);
+				startActivityForResult(intent, Constants.ALBUM);
 				poppWindow.dismiss();
 			}
 		});
@@ -161,7 +174,7 @@ public class PersonalEditActivity extends BaseActivity {
 				Log.i(TAG, "takePicturePath = " + takePicturePath);
 				File image = new File(takePicturePath);
 				intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(image));
-				startActivityForResult(intent, CAMERA);
+				startActivityForResult(intent, Constants.CAMERA);
 				poppWindow.dismiss();
 			}
 		});
@@ -175,6 +188,8 @@ public class PersonalEditActivity extends BaseActivity {
 				poppWindow.dismiss();
 			}
 		});
+
+		inflater = LayoutInflater.from(context);
 	}
 
 	@Override
@@ -184,19 +199,18 @@ public class PersonalEditActivity extends BaseActivity {
 			if (resultCode == RESULT_OK) {
 				switch (requestCode) {
 				// 如果是直接从相册获取
-				case ALBUM:
+				case Constants.ALBUM:
 					startPhotoZoom(data.getData());
 					break;
 				// 如果是调用相机拍照
-				case CAMERA:
+				case Constants.CAMERA:
 					File temp = new File(takePicturePath);
 					startPhotoZoom(Uri.fromFile(temp));
 					break;
 				// 取得裁剪后的图片
-				case ZOOM:
-					if (data != null) {
+				case Constants.ZOOM:
+					if (data != null)
 						setPicToView(data);
-					}
 					break;
 				default:
 					break;
@@ -224,7 +238,7 @@ public class PersonalEditActivity extends BaseActivity {
 		intent.putExtra("outputX", 360);
 		intent.putExtra("outputY", 360);
 		intent.putExtra("return-data", true);
-		startActivityForResult(intent, 3);
+		startActivityForResult(intent, Constants.ZOOM);
 	}
 
 	/**
@@ -257,7 +271,6 @@ public class PersonalEditActivity extends BaseActivity {
 	}
 
 	private void getPersonalInfo(String objectId) {
-
 		BmobQuery<User> query = new BmobQuery<User>();
 		query.getObject(this, objectId, new GetListener<User>() {
 
@@ -288,7 +301,7 @@ public class PersonalEditActivity extends BaseActivity {
 				if (!StringUtil.isEmpty(birthday)) {
 					tvBirthday.setText(birthday);
 				} else {
-					tvGender.setText(nowday);
+					tvBirthday.setText(nowday);
 				}
 			}
 
@@ -297,9 +310,7 @@ public class PersonalEditActivity extends BaseActivity {
 				loading.dismiss();
 				Log.i(TAG, msg);
 			}
-
 		});
-
 	}
 
 	/**
@@ -311,9 +322,6 @@ public class PersonalEditActivity extends BaseActivity {
 		String name = etName.getText().toString().trim();
 		String email = etEmail.getText().toString().trim();
 		String mobile = etMobile.getText().toString().trim();
-
-		age = 26;
-
 		loading.show();
 		postSave(name, email, mobile, gender, birthday, age);
 	}
@@ -332,15 +340,23 @@ public class PersonalEditActivity extends BaseActivity {
 	private void postSave(String name, String email, String mobile,
 			String gender, String birthday, int age) {
 
+		Log.i(TAG, "name:" + name + "\nemail:" + email + "\nmobile:" + mobile
+				+ "\ngender:" + gender + "\nbirthday:" + birthday + "\nage:"
+				+ age);
+
 		User user = new User();
 		user.setUsername(name);
 		user.setEmail(email);
 		if (!StringUtil.isEmpty(email)) {
 			user.setEmailVerified(true);
+		} else {
+			user.setEmailVerified(false);
 		}
 		user.setMobilePhoneNumber(mobile);
 		if (!StringUtil.isEmpty(mobile)) {
 			user.setMobilePhoneNumberVerified(true);
+		} else {
+			user.setMobilePhoneNumberVerified(false);
 		}
 		user.setGender(gender);
 		user.setAge(age);
@@ -350,6 +366,7 @@ public class PersonalEditActivity extends BaseActivity {
 			@Override
 			public void onSuccess() {
 				loading.dismiss();
+				setResult(RESULT_OK);
 				finish();
 				showToast(getString(R.string.u_success));
 			}
@@ -412,7 +429,35 @@ public class PersonalEditActivity extends BaseActivity {
 	 * @param v
 	 */
 	public void selectBirthday(View v) {
+		birthday = tvBirthday.getText().toString().trim();
+		// 初始化滚轮时间选择器
+		year = Integer.valueOf(birthday.substring(0, 4));
+		month = Integer.valueOf(birthday.substring(5, 7)) - 1;
+		day = Integer.valueOf(birthday.substring(8, 10));
+		Log.i(TAG, year + "+" + (month + 1) + "+" + day);
 
+		final View timepickerview = inflater.inflate(R.layout.timepicker, null);
+		ScreenInfo screenInfo = new ScreenInfo(PersonalEditActivity.this);
+
+		wheelMain = new WheelMain(timepickerview);
+		wheelMain.screenheight = screenInfo.getHeight();
+		wheelMain.initDateTimePicker(year, month, day);
+
+		new AlertDialog.Builder(context)
+				.setTitle(getString(R.string.input_birthday))
+				.setView(timepickerview)
+				.setPositiveButton(getString(R.string.sure),
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								birthday = wheelMain.getTime();
+								tvBirthday.setText(wheelMain.getTime());
+								birthYear = wheelMain.getYear();
+								age = Integer.parseInt(nowYear) - birthYear;
+							}
+						}).setNegativeButton(getString(R.string.cancel), null)
+				.show();
 	}
 
 	/**
