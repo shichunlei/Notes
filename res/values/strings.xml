@@ -3,6 +3,7 @@
 
     <string name="app_name">彩虹记事</string>
     <string name="password">密码</string>
+    <string name="username">账号</string>
     <string name="action_say">感悟</string>
     <string name="action_font">字体</string>
     <string name="exit">你还没有保存，确定要退出吗？</string>
@@ -98,6 +99,7 @@
     
     <string name="login">登录</string>
     <string name="regist">注册</string>
+    <string name="mobile_login">手机号码一键登录</string>
     
     <string name="setting_pwd_success">密码设置成功！</string>
     <string name="pwd_fail">密码错误！</string>
@@ -113,6 +115,7 @@
     <string name="setting_pwd">请设置四位数字密码</string>
     <string name="input_pwd">请输入密码</string>
     <string name="reset_pwd">请输入密码</string>
+    <string name="input_verify_code">请输入验证码</string>
     <string name="inconsistent_password">两次密码不一致！</string>
     <string name="email_format_error">邮箱格式错误！</string>
     <string name="mobile_format_error">邮箱格式错误！</string>
