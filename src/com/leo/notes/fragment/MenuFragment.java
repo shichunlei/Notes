@@ -5,6 +5,7 @@ import scl.leo.library.utils.other.AppUtils;
 import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -63,6 +64,8 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 	private String versionName;
 	private int versionCode;
 
+	User userInfo;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -79,8 +82,9 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 		Log.i("AboutActivity", "版本名：" + versionName + "版本号：" + versionCode);
 		versionname.setText(versionName);
 
-		User userInfo = BmobUser.getCurrentUser(getActivity(), User.class);
+		userInfo = BmobUser.getCurrentUser(getActivity(), User.class);
 		username.setText(userInfo.getUsername());
+
 		// 文件大小（单位：字节）
 		String cacheSize = String.valueOf(BmobPro.getInstance(getActivity())
 				.getCacheFileSize());
@@ -134,10 +138,25 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 			break;
 
 		case R.id.ll_personal_info:
-			openActivity(PersonalInfoActivity.class, false);
+			openActivity(PersonalInfoActivity.class, Constants.PERSONAL_INFO);
 			break;
 
 		default:
+			break;
+		}
+	}
+
+	@SuppressWarnings("static-access")
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (resultCode != getActivity().RESULT_OK) {
+			return;
+		}
+		switch (requestCode) {
+		case Constants.PERSONAL_INFO:
+			userInfo = BmobUser.getCurrentUser(getActivity(), User.class);
+			username.setText(userInfo.getUsername());
 			break;
 		}
 	}

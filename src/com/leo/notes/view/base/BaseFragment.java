@@ -132,6 +132,13 @@ public class BaseFragment extends Fragment {
 		}
 	}
 
+	protected void openActivity(Class<?> pClass, int i) {
+		Intent intent = new Intent(context, pClass);
+		startActivityForResult(intent, i);
+		((Activity) context).overridePendingTransition(R.anim.slide_in_right,
+				R.anim.slide_out_left);
+	}
+
 	/**
 	 * 通过类名启动Activity
 	 * 
