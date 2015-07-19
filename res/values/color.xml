@@ -19,5 +19,6 @@
     <color name="base_black_gray">#636363</color>
     <color name="devide_line">#CBCED2</color>
     <color name="tools_box_bg">#ff333332</color>
+    <color name="main_font_color">#9a9a9a</color>
 
 </resources>
