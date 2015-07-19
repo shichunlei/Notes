@@ -65,6 +65,9 @@
         <!-- 登录 -->
         <activity android:name="com.leo.notes.view.LoginActivity" >
         </activity>
+        <!-- 手机号码一键登录 -->
+        <activity android:name="com.leo.notes.view.LoginOneKeyActivity" >
+        </activity>
         <!-- 找回密码 -->
         <activity android:name="com.leo.notes.view.FindPwdActivity" >
         </activity>
