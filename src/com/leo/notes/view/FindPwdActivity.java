@@ -77,7 +77,7 @@ public class FindPwdActivity extends BaseActivity {
 		if (!TextUtils.isEmpty(number)) {
 			timer = new MyCountTimer(60000, 1000);
 			timer.start();
-			BmobSMS.requestSMSCode(context, number, "重置密码模板",
+			BmobSMS.requestSMSCode(context, number, "ResetPwd",
 					new RequestSMSCodeListener() {
 
 						@Override
