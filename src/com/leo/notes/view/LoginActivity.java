@@ -12,7 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import cn.bmob.v3.listener.SaveListener;
+
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.LogInListener;
 
 import com.leo.notes.R;
 import com.leo.notes.been.User;
@@ -61,35 +63,52 @@ public class LoginActivity extends BaseActivity {
 
 	public void login(View v) {
 		String name = etName.getText().toString().trim();
-		String pwd = etPwd.getText().toString().trim();
+		String password = etPwd.getText().toString().trim();
 
 		if (StringUtil.isEmpty(name)) {
 			showToast(getString(R.string.username_empty));
-		} else if (StringUtil.isEmpty(pwd)) {
+		} else if (StringUtil.isEmpty(password)) {
 			showToast(getString(R.string.pwd_empty));
 		} else {
 			loading.show();
-			postLogin(name, pwd);
+			postLogin(name, password);
 		}
 	}
 
-	private void postLogin(String name, String pwd) {
-		User user = new User();
-		user.setUsername(name);
-		user.setPassword(pwd);
-		user.login(this, new SaveListener() {
-			@Override
-			public void onSuccess() {
-				loading.dismiss();
-				showToast(getString(R.string.login_success));
-				openActivity(LoginPwdActivity.class, true);
-			}
+	private void postLogin(String name, String password) {
+		// User user = new User();
+		// user.setUsername(name);
+		// user.setPassword(password);
+		// user.login(this, new SaveListener() {
+		// @Override
+		// public void onSuccess() {
+		// loading.dismiss();
+		// showToast(getString(R.string.login_success));
+		// openActivity(LoginPwdActivity.class, true);
+		// }
+		//
+		// @Override
+		// public void onFailure(int code, String msg) {
+		// loading.dismiss();
+		// showToast(getString(R.string.login_fail));
+		// Log.i(TAG, msg);
+		// }
+		// });
+
+		User.loginByAccount(context, name, password, new LogInListener<User>() {
 
 			@Override
-			public void onFailure(int code, String msg) {
+			public void done(User user, BmobException ex) {
 				loading.dismiss();
-				showToast(getString(R.string.login_fail));
-				Log.i(TAG, msg);
+				if (ex == null) {
+					showToast(getString(R.string.login_success));
+					openActivity(LoginPwdActivity.class, true);
+				} else {
+					showToast(getString(R.string.login_fail));
+					Log.i(TAG,
+							"登录失败：code=" + ex.getErrorCode() + "，错误描述："
+									+ ex.getLocalizedMessage());
+				}
 			}
 		});
 
