@@ -31,8 +31,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -47,12 +47,12 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class PersonalEditActivity extends BaseActivity {
 
+	private static final String TAG = "PersonalEditActivity";
+
 	@ViewInject(id = R.id.personal_edit)
-	RelativeLayout edit;
+	LinearLayout edit;
 
 	int color;
-
-	private static final String TAG = "EditPersonalActivity";
 
 	@ViewInject(id = R.id.img_edit_add_photo, click = "addPhone")
 	private HeaderImageView phone;
@@ -60,9 +60,9 @@ public class PersonalEditActivity extends BaseActivity {
 	private CircularProgressDialog loading;
 
 	@ViewInject(id = R.id.img_left, click = "back")
-	private ImageView ivTitleLeft;
+	private ImageView imgLeft;
 	@ViewInject(id = R.id.img_right, click = "save")
-	private ImageView save;
+	private ImageView imgRight;
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
@@ -112,14 +112,20 @@ public class PersonalEditActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_personal_edit);
-
 		FinalActivity.initInjectedView(this);
-
 		init();
 	}
 
 	private void init() {
 		loading = CircularProgressDialog.show(context);
+
+		color = getResources().getColor(
+				(Integer) SPUtils.get(context, "color", R.color.gray,
+						Constants.COLOR));
+		edit.setBackgroundColor(color);
+		tvTitle.setText(getString(R.string.edit_personal_info));
+		imgLeft.setImageResource(R.drawable.icon_back);
+		imgRight.setImageResource(R.drawable.save);
 
 		User current_user = BmobUser.getCurrentUser(this, User.class);
 		objectId = current_user.getObjectId();
@@ -130,13 +136,12 @@ public class PersonalEditActivity extends BaseActivity {
 		loading.show();
 		getPersonalInfo(objectId);
 
-		color = getResources().getColor(
-				(Integer) SPUtils.get(context, "color", R.color.gray, "COLOR"));
-		edit.setBackgroundColor(color);
-		tvTitle.setText(getString(R.string.edit_personal_info));
-		ivTitleLeft.setImageResource(R.drawable.icon_back);
-		save.setImageResource(R.drawable.save);
+		initPhoto();
 
+		inflater = LayoutInflater.from(context);
+	}
+
+	private void initPhoto() {
 		popview = LayoutInflater.from(context).inflate(R.layout.pop_add_phone,
 				null);
 
@@ -188,8 +193,6 @@ public class PersonalEditActivity extends BaseActivity {
 				poppWindow.dismiss();
 			}
 		});
-
-		inflater = LayoutInflater.from(context);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.image.HeaderImageView;
 import scl.leo.library.utils.other.SPUtils;
 import scl.leo.library.utils.other.StringUtil;
+import scl.leo.library.utils.other.TimeUtils;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,10 +58,7 @@ public class PersonalInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_info_age)
 	private TextView tvAge;
 
-	private String gender = "";
-	private int age;
 	private String nowday;
-	private String birthday;
 	private String objectId;
 
 	@Override
@@ -83,6 +81,8 @@ public class PersonalInfoActivity extends BaseActivity {
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 		edit.setImageResource(R.drawable.edit);
 
+		nowday = TimeUtils.nowDate();
+
 		loading = CircularProgressDialog.show(context);
 		loading.show();
 		getPersonalInfo(objectId);
@@ -101,32 +101,21 @@ public class PersonalInfoActivity extends BaseActivity {
 			public void onSuccess(User user) {
 				loading.dismiss();
 				setResult(RESULT_OK);
-				age = user.getAge();
-				birthday = user.getBirthday();
-				gender = user.getGender();
-				String name = user.getUsername();
-				String email = user.getEmail();
-				String mobile = user.getMobilePhoneNumber();
 
-				if (!StringUtil.isEmpty(name)) {
-					tvName.setText(name);
-				}
-				if (!StringUtil.isEmpty(email)) {
-					tvEmail.setText(email);
-				}
-				tvAge.setText("" + age);
-				if (!StringUtil.isEmpty(mobile)) {
-					tvMobile.setText(mobile);
-				}
-				if (!StringUtil.isEmpty(gender)) {
-					tvGender.setText(gender);
+				tvName.setText("用  户 名：" + user.getUsername());
+				tvEmail.setText("邮      箱：" + user.getEmail());
+				tvAge.setText("年      龄：" + user.getAge());
+				tvMobile.setText("手机号码：" + user.getMobilePhoneNumber());
+
+				if (!StringUtil.isEmpty(user.getGender())) {
+					tvGender.setText("性      别：" + user.getGender());
 				} else {
-					tvGender.setText(getString(R.string.privacy));
+					tvGender.setText("性      别：" + getString(R.string.privacy));
 				}
-				if (!StringUtil.isEmpty(birthday)) {
-					tvBirthday.setText(birthday);
+				if (!StringUtil.isEmpty(user.getBirthday())) {
+					tvBirthday.setText("生      日：" + user.getBirthday());
 				} else {
-					tvGender.setText(nowday);
+					tvBirthday.setText("生      日：" + nowday);
 				}
 			}
 

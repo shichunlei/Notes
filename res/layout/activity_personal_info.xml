@@ -50,7 +50,7 @@
             <TextView
                 android:id="@+id/tv_info_name"
                 style="@style/login_edittext"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="" />
 
             <View
@@ -61,7 +61,7 @@
             <TextView
                 android:id="@+id/tv_info_email"
                 style="@style/login_edittext"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="" />
 
             <View
@@ -72,7 +72,7 @@
             <TextView
                 android:id="@+id/tv_info_mobile"
                 style="@style/login_edittext"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="" />
 
             <View
@@ -83,7 +83,7 @@
             <TextView
                 android:id="@+id/tv_info_gender"
                 style="@style/login_edittext"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="" />
 
             <View
@@ -94,7 +94,7 @@
             <TextView
                 android:id="@+id/tv_info_age"
                 style="@style/login_edittext"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="" />
 
             <View
@@ -105,7 +105,7 @@
             <TextView
                 android:id="@+id/tv_info_birthday"
                 style="@style/login_edittext"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:text="" />
 
             <View
