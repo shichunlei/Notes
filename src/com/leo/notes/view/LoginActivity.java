@@ -35,6 +35,11 @@ public class LoginActivity extends BaseActivity {
 	private Button btnlogin;
 	@ViewInject(id = R.id.btn_regist, click = "regist")
 	private Button btnregist;
+	@ViewInject(id = R.id.btn_onekey, click = "loginOneKey")
+	private Button btnonekey;
+
+	@ViewInject(id = R.id.tv_reset_pwd, click = "resetPWD")
+	private TextView resetpwd;
 
 	@ViewInject(id = R.id.et_login_name)
 	private EditText etName;
@@ -76,25 +81,6 @@ public class LoginActivity extends BaseActivity {
 	}
 
 	private void postLogin(String name, String password) {
-		// User user = new User();
-		// user.setUsername(name);
-		// user.setPassword(password);
-		// user.login(this, new SaveListener() {
-		// @Override
-		// public void onSuccess() {
-		// loading.dismiss();
-		// showToast(getString(R.string.login_success));
-		// openActivity(LoginPwdActivity.class, true);
-		// }
-		//
-		// @Override
-		// public void onFailure(int code, String msg) {
-		// loading.dismiss();
-		// showToast(getString(R.string.login_fail));
-		// Log.i(TAG, msg);
-		// }
-		// });
-
 		User.loginByAccount(context, name, password, new LogInListener<User>() {
 
 			@Override
@@ -111,10 +97,17 @@ public class LoginActivity extends BaseActivity {
 				}
 			}
 		});
-
 	}
 
 	public void regist(View v) {
 		openActivity(RegistActivity.class, false);
+	}
+
+	public void loginOneKey(View v) {
+		openActivity(LoginOneKeyActivity.class, false);
+	}
+
+	public void resetPWD(View v) {
+		openActivity(FindPwdActivity.class, false);
 	}
 }
