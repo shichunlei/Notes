@@ -44,7 +44,14 @@ public class Constants {
 	/** 颜色值 */
 	public static final String COLOR = "scl_color";
 
-	public static final int LIST_ADD = 2;
-	public static final int INFO_EDIT = 1;
-	public static final int LIST_INFO = 3;
+	public static final int LIST_ADD = 20001;
+	public static final int INFO_EDIT = 20002;
+	public static final int LIST_INFO = 20003;
+
+	public static final int ALBUM = 10001;
+	public static final int CAMERA = 10002;
+	public static final int ZOOM = 10003;
+
+	public static final int PERSONAL_INFO = 30001;
+	public static final int PERSONAL_EDIT = 30002;
 }
