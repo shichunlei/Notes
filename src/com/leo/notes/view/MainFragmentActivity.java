@@ -22,13 +22,15 @@ public class MainFragmentActivity extends BaseActivity {
 
 	private static final String TAG = "MainFragmentActivity";
 
-	protected SlidingMenu mSlidingMenu;
+	public static SlidingMenu mSlidingMenu;
 
 	@ViewInject(id = R.id.main)
 	private LinearLayout main;
 
 	@ViewInject(id = R.id.img_left, click = "menu")
-	private ImageView ivTitleLeft;
+	private ImageView imgLeft;
+	@ViewInject(id = R.id.img_right, click = "menu")
+	private ImageView imgRight;
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
@@ -44,6 +46,7 @@ public class MainFragmentActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		FinalActivity.initInjectedView(this);
+
 		init();
 		initSlidingmenu();
 	}
@@ -54,14 +57,26 @@ public class MainFragmentActivity extends BaseActivity {
 						Constants.COLOR));
 		main.setBackgroundColor(color);
 		tvTitle.setText("主页");
-		ivTitleLeft.setImageResource(R.drawable.menu);
+
+		if ((Boolean) SPUtils.get(context, "model", false,
+				Constants.SETTING_DATA)) {
+			imgRight.setImageResource(R.drawable.menu);
+		} else {
+			imgLeft.setImageResource(R.drawable.menu);
+		}
 	}
 
 	private void initSlidingmenu() {
 		mSlidingMenu = new SlidingMenu(this);
-		mSlidingMenu.setMode(SlidingMenu.LEFT);// 设置是左滑还是右滑，还是左右都可以滑，我这里只做了左滑
+		if ((Boolean) SPUtils.get(context, "model", false,
+				Constants.SETTING_DATA)) {
+			mSlidingMenu.setMode(SlidingMenu.RIGHT);// 设置是左滑还是右滑，还是左右都可以滑，我这里只做了左滑
+			mSlidingMenu.setShadowDrawable(R.drawable.right_shadow);// 设置左菜单阴影图片
+		} else {
+			mSlidingMenu.setMode(SlidingMenu.LEFT);// 设置是左滑还是右滑，还是左右都可以滑，我这里只做了左滑
+			mSlidingMenu.setShadowDrawable(R.drawable.left_shadow);// 设置左菜单阴影图片
+		}
 		mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);// 设置手势模式
-		mSlidingMenu.setShadowDrawable(R.drawable.shadow);// 设置左菜单阴影图片
 		mSlidingMenu.setShadowWidth(30); // 阴影宽度
 		mSlidingMenu.setBehindOffset(220);// 前面的视图剩下多少
 		mSlidingMenu.setFadeDegree(0.35f);// 设置淡入淡出的比例

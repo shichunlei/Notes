@@ -6,6 +6,7 @@ import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -123,6 +124,15 @@ public class SettingActivity extends BaseActivity {
 	}
 
 	public void back(View v) {
-		finish();
+		openActivity(MainFragmentActivity.class, true);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			openActivity(MainFragmentActivity.class, true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 }

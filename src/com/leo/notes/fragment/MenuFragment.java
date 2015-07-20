@@ -115,7 +115,8 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 			break;
 
 		case R.id.tv_setting:
-			openActivity(SettingActivity.class, false);
+			openActivity(SettingActivity.class, true);
+			MainFragmentActivity.mSlidingMenu.toggle();
 			break;
 
 		case R.id.rl_clean:
