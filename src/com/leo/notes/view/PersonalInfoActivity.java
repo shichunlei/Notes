@@ -25,8 +25,8 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class PersonalInfoActivity extends BaseActivity {
 
-	@ViewInject(id = R.id.personal_info)
-	RelativeLayout info;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
@@ -76,7 +76,7 @@ public class PersonalInfoActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		info.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.personal_info));
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 		edit.setImageResource(R.drawable.edit);

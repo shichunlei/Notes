@@ -25,8 +25,8 @@ public class LoginActivity extends BaseActivity {
 
 	private static final String TAG = "LoginActivity";
 
-	@ViewInject(id = R.id.login)
-	RelativeLayout login;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		login.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.login));
 		loading = CircularProgressDialog.show(context);
 	}

@@ -28,10 +28,6 @@ public class WelcomeActivity extends BaseActivity {
 	@ViewInject(id = R.id.quote_txt)
 	private TextView quoteTxt;
 
-	private static int[] colors = { R.color.purple, R.color.red,
-			R.color.orange, R.color.yellow, R.color.green, R.color.blue,
-			R.color.cyan };
-
 	private int color;
 
 	@Override
@@ -44,14 +40,14 @@ public class WelcomeActivity extends BaseActivity {
 		// 获取当前时间为本周的第几天
 		int day = TimeUtils.nowWeek();
 
-		int random = (int) (Math.random() * 99 + 0);
+		int random = (int) (Math.random() * 96 + 0);
 
 		Log.i("===============", "random = " + random);
 
 		String content = Quotes.quotes[random];
 
-		color = getResources().getColor(colors[day]);
-		SPUtils.put(getApplicationContext(), "color", colors[day],
+		color = getResources().getColor(Constants.colors[day]);
+		SPUtils.put(getApplicationContext(), "color", Constants.colors[day],
 				Constants.COLOR);
 		welcome.setBackgroundColor(color);
 		quoteTxt.setTextColor(color);

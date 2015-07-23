@@ -19,8 +19,8 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class SettingActivity extends BaseActivity {
 
-	@ViewInject(id = R.id.setting)
-	private LinearLayout setting;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
@@ -63,7 +63,7 @@ public class SettingActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		setting.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.setting));
 		imgLeft.setImageResource(R.drawable.icon_back);
 

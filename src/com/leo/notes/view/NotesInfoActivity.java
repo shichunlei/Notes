@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.GetListener;
@@ -23,8 +23,8 @@ public class NotesInfoActivity extends BaseActivity {
 
 	private static final String TAG = "NotesInfoActivity";
 
-	@ViewInject(id = R.id.notesinfo)
-	private LinearLayout notesinfo;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
@@ -65,7 +65,7 @@ public class NotesInfoActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		notesinfo.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.app_name));
 		imgLeft.setImageResource(R.drawable.icon_back);
 		imgRight.setImageResource(R.drawable.edit);

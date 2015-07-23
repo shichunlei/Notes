@@ -12,6 +12,7 @@ import android.view.animation.Animation.AnimationListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
@@ -20,8 +21,8 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class LoginPwdActivity extends BaseActivity {
 
-	@ViewInject(id = R.id.login)
-	LinearLayout login;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
@@ -63,7 +64,7 @@ public class LoginPwdActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		login.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		layout_keyboard.setBackgroundColor(color);
 		pfild.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.login));

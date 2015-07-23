@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.BmobUser;
@@ -28,8 +28,8 @@ public class FindPwdActivity extends BaseActivity {
 
 	private static final String TAG = "FindPwdActivity";
 
-	@ViewInject(id = R.id.findpwd)
-	private LinearLayout findpwd;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
@@ -67,7 +67,7 @@ public class FindPwdActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		findpwd.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.find_pwd));
 		imgLeft.setImageResource(R.drawable.icon_back);
 	}

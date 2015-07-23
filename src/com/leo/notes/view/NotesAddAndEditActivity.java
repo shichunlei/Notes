@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -30,8 +30,8 @@ public class NotesAddAndEditActivity extends BaseActivity {
 
 	private static final String TAG = "NotesAddAndEditActivity";
 
-	@ViewInject(id = R.id.notesedit)
-	private LinearLayout notesedit;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
@@ -76,7 +76,7 @@ public class NotesAddAndEditActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		notesedit.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 
 		imgLeft.setImageResource(R.drawable.delete);
 		imgRight.setImageResource(R.drawable.save);

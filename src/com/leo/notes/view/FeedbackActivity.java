@@ -6,7 +6,7 @@ import net.tsz.afinal.annotation.view.ViewInject;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
@@ -15,8 +15,8 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class FeedbackActivity extends BaseActivity {
 
-	@ViewInject(id = R.id.feedback)
-	private LinearLayout feedback;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
@@ -37,7 +37,7 @@ public class FeedbackActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		feedback.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.feedback));
 		imgLeft.setImageResource(R.drawable.icon_back);
 	}

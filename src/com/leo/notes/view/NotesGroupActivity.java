@@ -6,7 +6,7 @@ import scl.leo.library.utils.other.SPUtils;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
@@ -23,8 +23,8 @@ import com.leo.notes.view.base.BaseActivity;
  */
 public class NotesGroupActivity extends BaseActivity {
 
-	@ViewInject(id = R.id.notesgroup)
-	private LinearLayout notesgroup;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
@@ -47,7 +47,7 @@ public class NotesGroupActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		notesgroup.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText("我的分类");
 		imgLeft.setImageResource(R.drawable.icon_back);
 	}

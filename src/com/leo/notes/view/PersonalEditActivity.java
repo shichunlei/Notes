@@ -31,8 +31,8 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
@@ -49,8 +49,8 @@ public class PersonalEditActivity extends BaseActivity {
 
 	private static final String TAG = "PersonalEditActivity";
 
-	@ViewInject(id = R.id.personal_edit)
-	LinearLayout edit;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	int color;
 
@@ -122,7 +122,7 @@ public class PersonalEditActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		edit.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.edit_personal_info));
 		imgLeft.setImageResource(R.drawable.icon_back);
 		imgRight.setImageResource(R.drawable.save);

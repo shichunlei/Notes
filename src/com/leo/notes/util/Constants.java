@@ -1,5 +1,7 @@
 package com.leo.notes.util;
 
+import com.leo.notes.R;
+
 import scl.leo.library.utils.other.TimeUtils;
 import android.os.Environment;
 
@@ -55,4 +57,8 @@ public class Constants {
 
 	public static final int PERSONAL_INFO = 30001;
 	public static final int PERSONAL_EDIT = 30002;
+
+	public static final int[] colors = { R.color.purple, R.color.red,
+			R.color.orange, R.color.yellow, R.color.green, R.color.blue,
+			R.color.cyan };
 }

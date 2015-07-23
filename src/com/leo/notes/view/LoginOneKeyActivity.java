@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobSMS;
 import cn.bmob.v3.BmobUser;
@@ -30,8 +30,8 @@ public class LoginOneKeyActivity extends BaseActivity {
 
 	private static final String TAG = "LoginOneKeyActivity";
 
-	@ViewInject(id = R.id.login_onekey)
-	private LinearLayout login_onekey;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView ivTitleLeft;
@@ -63,7 +63,7 @@ public class LoginOneKeyActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		login_onekey.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText("手机号码一键登录");
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 

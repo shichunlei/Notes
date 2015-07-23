@@ -22,8 +22,8 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class RegistActivity extends BaseActivity {
 
-	@ViewInject(id = R.id.regist)
-	RelativeLayout regist;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	int color;
 
@@ -59,7 +59,7 @@ public class RegistActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		regist.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText(getString(R.string.regist));
 		imgLeft.setImageResource(R.drawable.icon_back);
 

@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.leo.notes.R;
@@ -24,8 +24,8 @@ public class MainFragmentActivity extends BaseActivity {
 
 	public static SlidingMenu mSlidingMenu;
 
-	@ViewInject(id = R.id.main)
-	private LinearLayout main;
+	@ViewInject(id = R.id.title_bar)
+	private RelativeLayout title_bar;
 
 	@ViewInject(id = R.id.img_left, click = "menu")
 	private ImageView imgLeft;
@@ -55,7 +55,7 @@ public class MainFragmentActivity extends BaseActivity {
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
-		main.setBackgroundColor(color);
+		title_bar.setBackgroundColor(color);
 		tvTitle.setText("主页");
 
 		if ((Boolean) SPUtils.get(context, "model", false,
