@@ -133,6 +133,8 @@
     <string name="setting">设置</string>
     <string name="version">检测版本</string>
     <string name="clean">清理缓存</string>
+    <string name="model">夜间模式</string>
+    <string name="cancellation">注销登录</string>
     
     <string name="version_success">登录成功</string>
     <string name="version_fail">登录失败</string>

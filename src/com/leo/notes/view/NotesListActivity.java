@@ -25,6 +25,7 @@ import com.leo.notes.adapter.NotesAdapter;
 import com.leo.notes.been.Notes;
 import com.leo.notes.been.User;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 /**
@@ -66,6 +67,7 @@ public class NotesListActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_notes_list);
 
 		FinalActivity.initInjectedView(this);

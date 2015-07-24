@@ -18,6 +18,7 @@ import cn.bmob.v3.listener.SaveListener;
 import com.leo.notes.R;
 import com.leo.notes.been.User;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 public class RegistActivity extends BaseActivity {
@@ -50,6 +51,7 @@ public class RegistActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_regist);
 		FinalActivity.initInjectedView(this);
 		init();

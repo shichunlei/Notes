@@ -1,5 +1,7 @@
 package com.leo.notes.fragment;
 
+import scl.leo.library.button.ToggleButton.ToggleButton;
+import scl.leo.library.button.ToggleButton.ToggleButton.OnToggleChanged;
 import scl.leo.library.image.HeaderImageView;
 import scl.leo.library.utils.other.AppUtils;
 import scl.leo.library.utils.other.SPUtils;
@@ -49,6 +51,9 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 	/** 版本名 */
 	@ViewInject(id = R.id.tv_version)
 	private TextView versionname;
+	/** 夜间模式 */
+	@ViewInject(id = R.id.tb_model)
+	private ToggleButton model;
 	/** 注销 */
 	@ViewInject(id = R.id.tv_exit)
 	private TextView exit;
@@ -92,6 +97,14 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 		// 对文件大小进行格式化，转化为'B'、'K'、'M'、'G'等单位
 		String formatSize = BmobPro.getInstance(getActivity())
 				.getCacheFormatSize();
+
+		if ((Boolean) SPUtils.get(getActivity(), "theme", false,
+				Constants.SETTING_DATA)) {
+			model.setToggleOn(true);
+		} else {
+			model.setToggleOff(true);
+		}
+
 		cleansize.setText(formatSize);
 		aboutme.setOnClickListener(this);
 		feedback.setOnClickListener(this);
@@ -100,6 +113,18 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 		version.setOnClickListener(this);
 		exit.setOnClickListener(this);
 		personal_info.setOnClickListener(this);
+
+		model.setOnToggleChanged(new OnToggleChanged() {
+			@Override
+			public void onToggle(boolean isChecked) {
+				if (isChecked) {
+					SPUtils.put(context, "theme", true, Constants.SETTING_DATA);
+				} else {
+					SPUtils.put(context, "theme", false, Constants.SETTING_DATA);
+				}
+				openActivity(MainFragmentActivity.class, true);
+			}
+		});
 	}
 
 	@Override

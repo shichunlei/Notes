@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.leo.notes.R;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 public class LoginPwdActivity extends BaseActivity {
@@ -57,6 +58,7 @@ public class LoginPwdActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_login_pwd);
 
 		FinalActivity.initInjectedView(this);

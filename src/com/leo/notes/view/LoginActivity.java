@@ -12,13 +12,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
 
 import com.leo.notes.R;
 import com.leo.notes.been.User;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity {
@@ -52,6 +52,7 @@ public class LoginActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_login);
 		FinalActivity.initInjectedView(this);
 		init();

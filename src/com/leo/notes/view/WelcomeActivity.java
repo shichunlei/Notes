@@ -9,6 +9,7 @@ import com.leo.notes.R;
 import com.leo.notes.been.User;
 import com.leo.notes.util.Constants;
 import com.leo.notes.util.Quotes;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 import net.tsz.afinal.FinalActivity;
@@ -33,6 +34,7 @@ public class WelcomeActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_welcome);
 		FinalActivity.initInjectedView(this);
 		Bmob.initialize(getApplicationContext(), Constants.APPLICATION_ID);
@@ -49,7 +51,7 @@ public class WelcomeActivity extends BaseActivity {
 		color = getResources().getColor(Constants.colors[day]);
 		SPUtils.put(getApplicationContext(), "color", Constants.colors[day],
 				Constants.COLOR);
-		welcome.setBackgroundColor(color);
+		// welcome.setBackgroundColor(color);
 		quoteTxt.setTextColor(color);
 		quoteTxt.setText(content);
 

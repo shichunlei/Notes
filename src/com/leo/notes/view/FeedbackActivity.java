@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.leo.notes.R;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 public class FeedbackActivity extends BaseActivity {
@@ -28,6 +29,7 @@ public class FeedbackActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_feedback);
 		FinalActivity.initInjectedView(this);
 		init();

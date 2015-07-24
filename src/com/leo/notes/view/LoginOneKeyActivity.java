@@ -7,6 +7,7 @@ import net.tsz.afinal.annotation.view.ViewInject;
 import com.leo.notes.R;
 import com.leo.notes.been.User;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 import android.app.ProgressDialog;
@@ -54,6 +55,7 @@ public class LoginOneKeyActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_login_onekey);
 		FinalActivity.initInjectedView(this);
 		init();

@@ -111,6 +111,7 @@ public class PersonalEditActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_personal_edit);
 		FinalActivity.initInjectedView(this);
 		init();

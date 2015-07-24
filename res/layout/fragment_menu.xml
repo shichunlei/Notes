@@ -14,9 +14,10 @@
         android:orientation="vertical" >
 
         <LinearLayout
+            android:id="@+id/ll_personal_info"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" android:id="@+id/ll_personal_info">
+            android:orientation="vertical" >
 
             <scl.leo.library.image.HeaderImageView
                 android:id="@+id/img_headerpic"
@@ -49,7 +50,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="20.0dip"
             android:singleLine="true"
-            android:text="关于我们"
+            android:text="@string/about_me"
             android:textColor="#ffccccc6"
             android:textSize="16.0sp" />
 
@@ -61,7 +62,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="20.0dip"
             android:singleLine="true"
-            android:text="反馈"
+            android:text="@string/feedback"
             android:textColor="#ffccccc6"
             android:textSize="16.0sp" />
 
@@ -73,7 +74,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="20.0dip"
             android:singleLine="true"
-            android:text="设置"
+            android:text="@string/setting"
             android:textColor="#ffccccc6"
             android:textSize="16.0sp" />
 
@@ -89,7 +90,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="20.0dip"
                 android:singleLine="true"
-                android:text="检测版本"
+                android:text="@string/version"
                 android:textColor="#ffccccc6"
                 android:textSize="16.0sp" />
 
@@ -120,7 +121,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="20.0dip"
                 android:singleLine="true"
-                android:text="清空缓存"
+                android:text="@string/clean"
                 android:textColor="#ffccccc6"
                 android:textSize="16.0sp" />
 
@@ -137,6 +138,32 @@
                 android:textSize="16.0sp" />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="@drawable/leftmenu_bg" >
+
+            <TextView
+                android:id="@+id/tv_model"
+                android:layout_width="wrap_content"
+                android:layout_height="50.0dip"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
+                android:paddingLeft="20.0dip"
+                android:singleLine="true"
+                android:text="@string/model"
+                android:textColor="#ffccccc6"
+                android:textSize="16.0sp" />
+
+            <scl.leo.library.button.ToggleButton.ToggleButton
+                android:id="@+id/tb_model"
+                android:layout_width="54dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp" />
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/tv_exit"
             android:layout_width="fill_parent"
@@ -145,7 +172,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="20.0dip"
             android:singleLine="true"
-            android:text="注销登录"
+            android:text="@string/cancellation"
             android:textColor="#ffccccc6"
             android:textSize="16.0sp" />
     </LinearLayout>

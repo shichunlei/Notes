@@ -22,6 +22,7 @@ import cn.bmob.v3.listener.ResetPasswordByCodeListener;
 
 import com.leo.notes.R;
 import com.leo.notes.util.Constants;
+import com.leo.notes.util.ThemeUtil;
 import com.leo.notes.view.base.BaseActivity;
 
 public class FindPwdActivity extends BaseActivity {
@@ -56,6 +57,7 @@ public class FindPwdActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		ThemeUtil.setTheme(context);
 		setContentView(R.layout.activity_findpwd);
 		FinalActivity.initInjectedView(this);
 		init();
