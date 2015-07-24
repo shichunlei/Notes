@@ -46,8 +46,6 @@
 
     <style name="login_edittext">
         <item name="android:textSize">17sp</item>
-        <item name="android:textColor">@color/gray_font</item>
-        <item name="android:textColorHint">@color/gray</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:background">@color/transparent</item>

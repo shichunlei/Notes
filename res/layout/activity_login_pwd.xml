@@ -150,10 +150,10 @@
                     android:layout_height="45dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="one"
                     android:text="1"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -163,10 +163,10 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="tow"
                     android:text="2"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -175,10 +175,10 @@
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="three"
                     android:text="3"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
             </LinearLayout>
 
@@ -196,10 +196,10 @@
                     android:layout_height="45dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="four"
                     android:text="4"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -209,10 +209,10 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="five"
                     android:text="5"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -221,10 +221,10 @@
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="six"
                     android:text="6"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
             </LinearLayout>
 
@@ -242,10 +242,10 @@
                     android:layout_height="45dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="seven"
                     android:text="7"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -255,10 +255,10 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="eight"
                     android:text="8"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -267,10 +267,10 @@
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="nine"
                     android:text="9"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
             </LinearLayout>
 
@@ -288,10 +288,10 @@
                     android:layout_height="45dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="del"
                     android:text="del"
-                    android:textColor="#FFFFFF"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -301,10 +301,10 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="zero"
                     android:text="0"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
 
                 <Button
@@ -313,10 +313,10 @@
                     android:layout_height="45dp"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_button"
+                    android:background="@drawable/icon_button_bg"
                     android:onClick="ok"
                     android:text="ok"
-                    android:textColor="@drawable/k_textcolor_selector"
+                    android:textColor="@color/main_font_color"
                     android:textSize="25sp" />
             </LinearLayout>
         </LinearLayout>

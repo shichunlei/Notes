@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="手机号码"
-                android:textColor="#444444"
+                android:textColor="@color/main_font_color"
                 android:textSize="16sp" />
 
             <View
@@ -48,7 +48,7 @@
                 android:hint="@string/input_mobile"
                 android:inputType="phone"
                 android:singleLine="true"
-                android:textColor="#444444"
+                android:textColor="@color/main_font_color"
                 android:textColorHint="@color/main_font_color"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="验  证  码"
-                    android:textColor="#444444"
+                    android:textColor="@color/main_font_color"
                     android:textSize="16sp" />
 
                 <View
@@ -93,7 +93,7 @@
                     android:hint="6位验证码"
                     android:inputType="number"
                     android:singleLine="true"
-                    android:textColor="#444444"
+                    android:textColor="@color/main_font_color"
                     android:textColorHint="@color/main_font_color"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -104,9 +104,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/bg_btn_press_selector"
+                android:background="@drawable/icon_button_bg"
                 android:text="发送验证码"
-                android:textColor="#ffffff"
+                android:textColor="@color/main_font_color"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -125,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="新  密  码"
-                android:textColor="#444444"
+                android:textColor="@color/main_font_color"
                 android:textSize="16sp" />
 
             <View
@@ -144,7 +144,7 @@
                 android:hint="请输入新密码"
                 android:inputType="phone"
                 android:singleLine="true"
-                android:textColor="#444444"
+                android:textColor="@color/main_font_color"
                 android:textColorHint="@color/main_font_color"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -154,9 +154,9 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/bg_btn_press_selector"
+            android:background="@drawable/icon_button_bg"
             android:text="重置密码"
-            android:textColor="#ffffff"
+            android:textColor="@color/main_font_color"
             android:textSize="16sp" />
     </LinearLayout>
 
