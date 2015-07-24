@@ -48,6 +48,8 @@
         <item name="android:textSize">17sp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
+        <item name="android:textColor">@color/main_font_color</item>
+        <item name="android:textColorHint">@color/main_font_color</item>
         <item name="android:background">@color/transparent</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:padding">10dp</item>
