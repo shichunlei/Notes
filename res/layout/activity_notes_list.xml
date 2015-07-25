@@ -25,6 +25,16 @@
             android:paddingTop="10dp"
             android:scrollbars="none" >
         </ListView>
+
+        <ImageView
+            android:id="@+id/img_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/tab_add" />
     </RelativeLayout>
 
 </LinearLayout>

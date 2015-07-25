@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
@@ -41,11 +42,15 @@ public class NotesInfoActivity extends BaseActivity {
 	@ViewInject(id = R.id.info_content)
 	private TextView tvContent;
 
+	@ViewInject(id = R.id.ll_text)
+	private LinearLayout text;
+
 	private CircularProgressDialog loading;
 
-	int color;
+	private int color;
+	private int bgcolor;
 
-	String id;
+	private String id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +66,11 @@ public class NotesInfoActivity extends BaseActivity {
 	private void init() {
 		loading = CircularProgressDialog.show(context);
 
-		id = getStringExtra("id");
+		Bundle bundle = getIntent().getExtras();
+		id = bundle.getString("id");
+		bgcolor = bundle.getInt("bgcolor");
 		Log.i(TAG, id);
+		text.setBackgroundResource(Constants.bgcolors[bgcolor]);
 
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
@@ -107,6 +115,7 @@ public class NotesInfoActivity extends BaseActivity {
 		Bundle bundle = new Bundle();
 		bundle.putString("tag", "edit");
 		bundle.putString("id", id);
+		bundle.putInt("bgcolor", bgcolor);
 		openActivity(NotesAddAndEditActivity.class, bundle, Constants.INFO_EDIT);
 	}
 

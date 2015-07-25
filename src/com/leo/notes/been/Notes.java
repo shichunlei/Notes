@@ -13,6 +13,8 @@ public class Notes extends BmobObject {
 	private String title;
 	/** 内容 */
 	private String content;
+	/** 颜色 */
+	private Integer color;
 	/** 分组 */
 	private Group group;
 	/** 用户 */
@@ -48,6 +50,14 @@ public class Notes extends BmobObject {
 
 	public void setGroup(Group group) {
 		this.group = group;
+	}
+
+	public Integer getColor() {
+		return color;
+	}
+
+	public void setColor(Integer color) {
+		this.color = color;
 	}
 
 	@Override

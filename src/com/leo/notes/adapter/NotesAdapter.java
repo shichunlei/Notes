@@ -6,12 +6,14 @@ import java.util.List;
 
 import com.leo.notes.R;
 import com.leo.notes.been.Notes;
+import com.leo.notes.util.Constants;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class NotesAdapter extends BaseAdapter {
@@ -54,6 +56,7 @@ public class NotesAdapter extends BaseAdapter {
 
 	private void bind(Notes item, View convertView) {
 		ViewHolder holder = (ViewHolder) convertView.getTag();
+		holder.llBG.setBackgroundResource(Constants.bgcolors[item.getColor()]);
 		holder.content.setText(item.getContent());
 		holder.title.setText(item.getTitle());
 		holder.time.setText(item.getCreatedAt());
@@ -72,8 +75,10 @@ public class NotesAdapter extends BaseAdapter {
 		private TextView content;
 		private TextView title;
 		private TextView time;
+		private LinearLayout llBG;
 
 		public ViewHolder(View view) {
+			llBG = (LinearLayout) view.findViewById(R.id.ll_text);
 			content = (TextView) view.findViewById(R.id.notes_content);
 			title = (TextView) view.findViewById(R.id.notes_title);
 			time = (TextView) view.findViewById(R.id.notes_time);

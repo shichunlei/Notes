@@ -18,10 +18,95 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_alignParentBottom="true"
-            android:orientation="horizontal" >
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/gray_font" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:padding="3dp" >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_1"
+                    android:onClick="onColorClicked"
+                    android:tag="1" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_2"
+                    android:onClick="onColorClicked"
+                    android:tag="2" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_3"
+                    android:onClick="onColorClicked"
+                    android:tag="3" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_4"
+                    android:onClick="onColorClicked"
+                    android:tag="4" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_5"
+                    android:onClick="onColorClicked"
+                    android:tag="5" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_6"
+                    android:onClick="onColorClicked"
+                    android:tag="6" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_7"
+                    android:onClick="onColorClicked"
+                    android:tag="7" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="3dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_content_8"
+                    android:onClick="onColorClicked"
+                    android:tag="8" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_text"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_above="@id/ll_bottom"
@@ -39,7 +124,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_border"
+                android:background="@drawable/bg_content_8"
                 android:gravity="left"
                 android:hint="@string/input_hint_content"
                 android:minLines="8"

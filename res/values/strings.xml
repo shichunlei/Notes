@@ -9,7 +9,7 @@
     <string name="sure">确定</string>
     <string name="cancel">取消</string>
     <string name="_exit">再按一次退出程序</string>
-    <string name="exit">你还没有保存记事\n，确定要退出吗？</string>
+    <string name="exit">你还没有保存记事，\n确定要退出吗？</string>
 
     <!-- Title -->
     <string name="add_notes">添加记事</string>

@@ -5,10 +5,11 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/ll_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/bg_border"
+        android:background="@drawable/bg_content_8"
         android:orientation="vertical" >
 
         <TextView
@@ -19,6 +20,7 @@
             android:padding="5dp"
             android:singleLine="true"
             android:text=""
+            android:textColor="@color/white"
             android:textSize="18sp" />
 
         <View
@@ -39,6 +41,7 @@
                 android:padding="5dp"
                 android:singleLine="true"
                 android:text=""
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
@@ -50,6 +53,7 @@
                 android:maxLines="2"
                 android:padding="5dp"
                 android:text=""
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>

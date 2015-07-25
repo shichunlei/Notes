@@ -43,17 +43,21 @@ public class NotesListActivity extends BaseActivity {
 	@ViewInject(id = R.id.title_bar)
 	private RelativeLayout title_bar;
 
-	@ViewInject(id = R.id.img_left, click = "add")
+	@ViewInject(id = R.id.img_left, click = "back")
 	private ImageView imgLeft;
 	@ViewInject(id = R.id.img_right, click = "search")
 	private ImageView imgRight;
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
+	@ViewInject(id = R.id.img_add, click = "add")
+	private ImageView imgAdd;
+
 	@ViewInject(id = R.id.listview, itemClick = "itemClick")
 	private ListView listview;
 
-	int color;
+	private int color;
+	private int bgcolor;
 
 	private CircularProgressDialog loading;
 
@@ -81,8 +85,8 @@ public class NotesListActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		title_bar.setBackgroundColor(color);
-		tvTitle.setText("记事");
-		imgLeft.setImageResource(R.drawable.add);
+		tvTitle.setText(R.string.app_name);
+		imgLeft.setImageResource(R.drawable.back);
 		imgRight.setImageResource(R.drawable.search);
 
 		User current_user = BmobUser.getCurrentUser(context, User.class);
@@ -105,6 +109,7 @@ public class NotesListActivity extends BaseActivity {
 		query.addWhereEqualTo("group", group);
 		// 返回50条数据，如果不加上这条语句，默认返回10条数据
 		query.setLimit(50);
+		query.order("-createdAt");
 		// 希望同时查询该Notes的发布者的信息，以及该Notes的分组信息group，这里用到上面`include`的并列对象查询和内嵌对象的查询
 		query.include("group,author");
 		// 执行查询方法
@@ -140,13 +145,19 @@ public class NotesListActivity extends BaseActivity {
 	public void itemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		String notes_id = notesList.get(position).getObjectId();
-		openActivity(NotesInfoActivity.class, "id", notes_id,
-				Constants.LIST_INFO);
+		bgcolor = notesList.get(position).getColor();
+		Bundle bundle = new Bundle();
+		bundle.putString("id", notes_id);
+		bundle.putInt("bgcolor", bgcolor);
+		openActivity(NotesInfoActivity.class, bundle, Constants.LIST_INFO);
 	}
 
 	public void add(View view) {
-		openActivity(NotesAddAndEditActivity.class, "tag", "add",
-				Constants.LIST_ADD);
+		bgcolor = 7;
+		Bundle bundle = new Bundle();
+		bundle.putString("tag", "add");
+		bundle.putInt("bgcolor", bgcolor);
+		openActivity(NotesAddAndEditActivity.class, bundle, Constants.LIST_ADD);
 	}
 
 	@Override
@@ -167,7 +178,7 @@ public class NotesListActivity extends BaseActivity {
 		}
 	}
 
-	public void search(View view) {
-
+	public void back(View view) {
+		finish();
 	}
 }
