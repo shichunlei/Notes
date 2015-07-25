@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:padding="10dp"
-            android:text="基本设置"
+            android:text="@string/setting_basic_setup"
             android:textColor="@color/cpb_blue"
             android:textSize="16sp" />
 
@@ -44,7 +44,8 @@
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:singleLine="true"
-                android:text="同步笔记"
+                android:text="@string/setting_synchronous"
+                android:textColor="@color/main_font_color"
                 android:textSize="13sp" />
 
             <TextView
@@ -55,7 +56,8 @@
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:singleLine="true"
-                android:text="你有2条笔记未同步"
+                android:text="@string/setting_synchronous"
+                android:textColor="@color/main_font_color"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -94,7 +96,8 @@
                     android:gravity="center_vertical"
                     android:padding="5dp"
                     android:singleLine="true"
-                    android:text="右手操作模式"
+                    android:text="@string/setting_model"
+                    android:textColor="@color/main_font_color"
                     android:textSize="13sp" />
 
                 <TextView
@@ -103,7 +106,8 @@
                     android:gravity="center_vertical"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
-                    android:text="开启右手操作模式，侧边栏将从右边划开，默认从左边划开"
+                    android:text="@string/setting_model_"
+                    android:textColor="@color/main_font_color"
                     android:textSize="8sp" />
             </LinearLayout>
         </RelativeLayout>
@@ -143,7 +147,8 @@
                     android:gravity="center_vertical"
                     android:padding="5dp"
                     android:singleLine="true"
-                    android:text="卡片模式"
+                    android:text="@string/setting_list_grid"
+                    android:textColor="@color/main_font_color"
                     android:textSize="13sp" />
 
                 <TextView
@@ -152,7 +157,8 @@
                     android:gravity="center_vertical"
                     android:paddingBottom="5dp"
                     android:paddingLeft="10dp"
-                    android:text="默认为列表模式"
+                    android:text="@string/setting_list_grid_"
+                    android:textColor="@color/main_font_color"
                     android:textSize="8sp" />
             </LinearLayout>
         </RelativeLayout>
@@ -177,7 +183,8 @@
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:singleLine="true"
-                android:text="清空笔记"
+                android:text="@string/setting_clean"
+                android:textColor="@color/main_font_color"
                 android:textSize="13sp" />
 
             <TextView
@@ -186,7 +193,8 @@
                 android:gravity="center_vertical"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
-                android:text="点击此项，将清空所有笔记，请慎重操作"
+                android:text="@string/setting_clean_"
+                android:textColor="@color/main_font_color"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -210,7 +218,8 @@
                 android:gravity="center_vertical"
                 android:padding="5dp"
                 android:singleLine="true"
-                android:text="恢复默认设置"
+                android:text="@string/setting_default"
+                android:textColor="@color/main_font_color"
                 android:textSize="13sp" />
 
             <TextView
@@ -219,7 +228,8 @@
                 android:gravity="center_vertical"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
-                android:text="所有设置将恢复最初始状态"
+                android:text="@string/setting_default_"
+                android:textColor="@color/main_font_color"
                 android:textSize="8sp" />
         </LinearLayout>
 
@@ -235,7 +245,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:padding="10dp"
-            android:text="其他设置"
+            android:text="@string/setting_orther"
             android:textColor="@color/cpb_blue"
             android:textSize="16sp" />
 
