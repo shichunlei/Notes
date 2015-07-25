@@ -11,8 +11,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="10dp"
         android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/reply_contacts"
+            style="@style/login_edittext"
+            android:background="@drawable/bg_border"
+            android:hint="请输入联系方式" />
+
+        <EditText
+            android:id="@+id/reply_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_border"
+            android:gravity="left"
+            android:hint="您把您不满意的写下来，我们会给你一个满意的答复"
+            android:minLines="5"
+            android:padding="10dp"
+            android:textColor="@color/main_font_color"
+            android:textColorHint="@color/main_font_color" />
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/icon_button_bg"
+            android:text="提交"
+            android:textColor="@color/main_font_color"
+            android:textSize="17sp" />
     </LinearLayout>
 
 </LinearLayout>
