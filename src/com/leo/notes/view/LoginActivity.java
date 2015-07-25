@@ -105,7 +105,7 @@ public class LoginActivity extends BaseActivity {
 	}
 
 	public void loginOneKey(View v) {
-		openActivity(LoginOneKeyActivity.class, false);
+		openActivity(LoginOneKeyActivity.class, true);
 	}
 
 	public void resetPWD(View v) {

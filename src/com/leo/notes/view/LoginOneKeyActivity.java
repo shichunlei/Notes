@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -39,7 +40,7 @@ public class LoginOneKeyActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
-	int color;
+	private int color;
 
 	MyCountTimer timer;
 
@@ -66,7 +67,7 @@ public class LoginOneKeyActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		title_bar.setBackgroundColor(color);
-		tvTitle.setText("手机号码一键登录");
+		tvTitle.setText(getString(R.string.mobile_login));
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
 
 	}
@@ -101,7 +102,7 @@ public class LoginOneKeyActivity extends BaseActivity {
 		if (!TextUtils.isEmpty(number)) {
 			timer = new MyCountTimer(60000, 1000);
 			timer.start();
-			BmobSMS.requestSMSCode(this, number, "一键注册或登录模板",
+			BmobSMS.requestSMSCode(this, number, "Q_Regist",
 					new RequestSMSCodeListener() {
 
 						@Override
@@ -163,7 +164,16 @@ public class LoginOneKeyActivity extends BaseActivity {
 	}
 
 	public void back(View v) {
-		finish();
+		openActivity(LoginActivity.class, true);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			openActivity(LoginActivity.class, true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 	@Override
