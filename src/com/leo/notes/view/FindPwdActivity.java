@@ -92,7 +92,7 @@ public class FindPwdActivity extends BaseActivity {
 						}
 					});
 		} else {
-			showToast("请输入手机号码");
+			showToast(getString(R.string.input_mobile));
 		}
 	}
 

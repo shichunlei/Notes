@@ -184,7 +184,6 @@ public class NotesAddAndEditActivity extends BaseActivity {
 		}
 	}
 
-	// 按下菜单键时
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {

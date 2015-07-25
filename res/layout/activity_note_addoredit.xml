@@ -32,7 +32,7 @@
                 android:id="@+id/et_title"
                 style="@style/login_edittext"
                 android:background="@drawable/bg_border"
-                android:hint="请输入标题" />
+                android:hint="@string/input_hint_title" />
 
             <EditText
                 android:id="@+id/et_content"
@@ -41,7 +41,7 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_border"
                 android:gravity="left"
-                android:hint="请输入内容"
+                android:hint="@string/input_hint_content"
                 android:minLines="8"
                 android:padding="10dp"
                 android:textColor="@color/main_font_color"

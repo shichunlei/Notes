@@ -19,7 +19,7 @@
             android:id="@+id/reply_contacts"
             style="@style/login_edittext"
             android:background="@drawable/bg_border"
-            android:hint="请输入联系方式" />
+            android:hint="@string/input_contacts" />
 
         <EditText
             android:id="@+id/reply_content"
@@ -28,7 +28,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_border"
             android:gravity="left"
-            android:hint="您把您不满意的写下来，我们会给你一个满意的答复"
+            android:hint="@string/input_content"
             android:minLines="5"
             android:padding="10dp"
             android:textColor="@color/main_font_color"
@@ -40,7 +40,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/icon_button_bg"
-            android:text="提交"
+            android:text="@string/submit"
             android:textColor="@color/main_font_color"
             android:textSize="17sp" />
     </LinearLayout>

@@ -2,108 +2,56 @@
 <resources>
 
     <string name="app_name">彩虹记事</string>
-    <string name="password">密码</string>
-    <string name="username">账号</string>
-    <string name="action_say">感悟</string>
-    <string name="action_font">字体</string>
-    <string name="exit">你还没有保存，确定要退出吗？</string>
-    <string name="hello_world">就让往事随风~</string>
-    <string name="back">欢迎回来~</string>
-    <string name="mode_btn">模式</string>
-    <string name="sort_btn">排序</string>
-    <string name="add_btn">添加</string>
-    <string name="grid_mode">网格</string>
-    <string name="list_mode">列表</string>
-    <string name="back_btn">返回</string>
-    <string name="lock_btn">加锁</string>
-    <string name="now_note">旧的记事</string>
-    <string name="new_note">新的记事</string>
-    <string name="content_hint">写点什么呢？</string>
-    <string name="save">保存</string>
-    <string name="zero_txt">0</string>
-    <string name="grid_now">网格模式开启</string>
-    <string name="list_now">列表模式开启</string>
-    <string name="desc_now">递减排序开启</string>
-    <string name="asc_now">递增排序开启</string>
-    <string name="lock_now">记事已加锁</string>
-    <string name="unlock_now">记事已解锁</string>
-    <string name="title_hint">标题</string>
-    <string name="delete">删除</string>
-    <string name="limit_count">余额</string>
-    <string name="limit_time">限时</string>
-    
-    <string name="back_hint">当前记事还未保存，是否保存？</string>
-    <string name="delete_note">删除记事</string>
-    <string name="delete_desc">现在删除记事吗？</string>
-    <string name="note_deleted">记事已删除</string>
-    
-    <string name="word_yes">是</string>
-    <string name="word_no">否</string>
-    <string name="word_time">天</string>
-    <string name="word_count">次</string>
-    <string name="word_today">今天</string>
-    <string name="word_ago">天前</string>
-    <string name="word_my">我的</string>
-    <string name="word_said">说过：</string>
-    <string name="note_saved">记事已保存</string>
-    <string name="note_null">写点什么吧~</string>
-    <string name="exit_hint">再按一次退出风知记事</string>
-    <string name="choose_skin">选择皮肤颜色</string>
-    <string name="now_skin">正在使用该皮肤</string>
-    <string name="limit_length">至少6位</string>
-    <string name="key_txt">密码</string>
-    <string name="enter_key">新密码</string>
-    <string name="again_key">请确认</string>
-    <string name="old_key">原密码</string>
-    <string name="set_key">设置密码</string>
-    <string name="reset_key">修改密码</string>
-    <string name="cancel_key">取消密码</string>
-    <string name="wrong_key">密码错误</string>
-    <string name="key_success">请记住新密码：</string>
-    <string name="key_canceled">密码已取消</string>
-    <string name="delete_yes">删除记事</string>
-    <string name="delete_no">取消删除</string>
-    <string name="gone_time">保存天数</string>
-    <string name="gone_count">阅读次数</string>
-    <string name="gone_btn">放飞记事</string>
-    <string name="leave_btn">不想放飞</string>
-    <string name="confirm_btn">确认修改</string>
-    <string name="clear_btn">×</string>
-    <string name="num_zero">0</string>
-    <string name="search_btn">搜索记事</string>
-    <string name="clear_note">清空内容</string>
-    <string name="clear_cancel">取消清空</string>
-    <string name="refresh_txt">记事已刷新</string>
-    <string name="left_txt">剩余</string>
     <string name="about_txt">彩虹记事 v1.0\r\n\r\n作者：leo\r\n邮箱：1558053958@qq.com\r\n\r\n欢迎交流，谢谢支持！</string>
-    
+
+    <!-- 对话框提示语 -->
     <string name="alert_hint">提示</string>
     <string name="sure">确定</string>
     <string name="cancel">取消</string>
     <string name="_exit">再按一次退出程序</string>
-    
-    <string name="man">男</string>
-    <string name="women">女</string>
-    <string name="privacy">保密</string>
-    
+    <string name="exit">你还没有保存记事\n，确定要退出吗？</string>
+
+    <!-- Title -->
     <string name="add_notes">添加记事</string>
     <string name="edit_notes">编辑记事</string>
+    <string name="login">登录</string>
+    <string name="regist">注册</string>
+    <string name="mobile_login">手机号码一键登录</string>
+    <string name="find_pwd">找回密码</string>
+    <string name="personal_info">个人信息</string>
+    <string name="edit_personal_info">编辑信息</string>
+    <string name="about_me">关于</string>
+    <string name="feedback">反馈</string>
+    <string name="setting">设置</string>
+
+    <!-- 操作提示语 -->
     <string name="q_success">查询成功</string>
     <string name="q_fail">查询失败</string>
     <string name="i_success">添加成功</string>
     <string name="i_fail">添加失败</string>
     <string name="u_success">更新成功</string>
     <string name="u_fail">更新失败</string>
-    <string name="d_success">删除成功</string>
-    <string name="d_fail">删除失败</string>
-    
-    <string name="login">登录</string>
-    <string name="regist">注册</string>
-    <string name="mobile_login">手机号码一键登录</string>
-    
+    <string name="del_success">删除完毕</string>
+    <string name="del_fail">删除失败</string>
+    <string name="f_success">反馈成功</string>
+    <string name="f_fail">反馈失败</string>
+    <string name="version_success">更新成功</string>
+    <string name="version_fail">更新失败</string>
+    <string name="clean_success">缓存清理成功</string>
+    <string name="clean_fail">缓存清理失败</string>
+    <string name="login_success">登录成功</string>
+    <string name="login_fail">登录失败</string>
+    <string name="regist_success">注册成功</string>
+    <string name="regist_fail">注册失败</string>
+
+    <!-- 登录、注册、找回密码 -->
+    <string name="password">密码</string>
+    <string name="username">账号</string>
+    <string name="mobile">手机号码</string>
+    <string name="verify_code">验  证  码</string>
+    <string name="new_pwd">新 密 码</string>
     <string name="setting_pwd_success">密码设置成功！</string>
     <string name="pwd_fail">密码错误！</string>
-    <string name="find_pwd">找回密码</string>
     <string name="username_empty">账号不能为空！</string>
     <string name="input_username">请输入用户名/邮箱/手机号码</string>
     <string name="input_name">请输入用户名</string>
@@ -111,37 +59,51 @@
     <string name="input_mobile">请输入手机号码</string>
     <string name="input_gender">请选择性别</string>
     <string name="input_birthday">请选择生日</string>
+    <string name="input_verify_code">6位验证码</string>
     <string name="pwd_empty">密码不能为空！</string>
     <string name="setting_pwd">请设置四位数字密码</string>
     <string name="input_pwd">请输入密码</string>
-    <string name="reset_pwd">请输入密码</string>
-    <string name="input_verify_code">请输入验证码</string>
+    <string name="input_new_pwd">请输入新密码</string>
     <string name="inconsistent_password">两次密码不一致！</string>
     <string name="email_format_error">邮箱格式错误！</string>
-    <string name="mobile_format_error">邮箱格式错误！</string>
-    
-    <string name="login_success">登录成功</string>
-    <string name="login_fail">登录失败</string>
-    <string name="regist_success">注册成功</string>
-    <string name="regist_fail">注册失败</string>
-    
-    <string name="personal_info">个人信息</string>
-    <string name="edit_personal_info">编辑信息</string>
-    
-    <string name="about_me">关于</string>
-    <string name="feedback">反馈</string>
-    <string name="setting">设置</string>
+    <string name="mobile_format_error">手机号码格式错误！</string>
+    <string name="reset_pwd">重置密码</string>
+    <string name="send_verify_code">发送验证码</string>
+    <string name="forget_pwd">忘记密码？</string>
+
+    <!-- 个人信息 -->
+    <string name="camera">相机选择</string>
+    <string name="album">相册选择</string>
+    <string name="man">男</string>
+    <string name="women">女</string>
+    <string name="privacy">保密</string>
+
+    <!-- 左侧菜单 -->
     <string name="version">检测版本</string>
     <string name="clean">清理缓存</string>
     <string name="model">夜间模式</string>
     <string name="cancellation">注销登录</string>
-    
-    <string name="version_success">登录成功</string>
-    <string name="version_fail">登录失败</string>
-    <string name="clean_success">缓存清理成功</string>
-    <string name="clean_fail">缓存清理失败</string>
-    
-    <string name="camera">相机选择</string>
-    <string name="album">相册选择</string>
-    
+
+    <!-- 反馈 -->
+    <string name="input_contacts">请输入联系方式</string>
+    <string name="input_content">您把您不满意的写下来，我们会给你一个满意的答复</string>
+    <string name="submit">提交</string>
+
+    <!-- 设置 -->
+    <string name="setting_basic_setup">基本设置</string>
+    <string name="setting_synchronous">同步笔记</string>
+    <string name="setting_model">右手操作模式</string>
+    <string name="setting_model_">开启右手操作模式，侧边栏将从右边划开，默认从左边划开</string>
+    <string name="setting_list_grid">卡片模式</string>
+    <string name="setting_list_grid_">默认为列表模式</string>
+    <string name="setting_clean">清空笔记</string>
+    <string name="setting_clean_">点击此项，将清空所有笔记，请慎重操作</string>
+    <string name="setting_default">恢复默认设置</string>
+    <string name="setting_default_">所有设置将恢复最初始状态</string>
+    <string name="setting_orther">其他设置</string>
+
+    <!-- Notes -->
+    <string name="input_hint_content">请输入内容</string>
+    <string name="input_hint_title">请输入标题</string>
+
 </resources>

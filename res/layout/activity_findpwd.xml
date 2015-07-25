@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="手机号码"
+                android:text="@string/mobile"
                 android:textColor="@color/main_font_color"
                 android:textSize="16sp" />
 
@@ -73,7 +73,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="验  证  码"
+                    android:text="@string/verify_code"
                     android:textColor="@color/main_font_color"
                     android:textSize="16sp" />
 
@@ -90,7 +90,7 @@
                     android:layout_marginLeft="8dp"
                     android:layout_weight="1"
                     android:background="@null"
-                    android:hint="6位验证码"
+                    android:hint="@string/input_verify_code"
                     android:inputType="number"
                     android:singleLine="true"
                     android:textColor="@color/main_font_color"
@@ -105,7 +105,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/icon_button_bg"
-                android:text="发送验证码"
+                android:text="@string/send_verify_code"
                 android:textColor="@color/main_font_color"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -124,7 +124,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="新  密  码"
+                android:text="@string/new_pwd"
                 android:textColor="@color/main_font_color"
                 android:textSize="16sp" />
 
@@ -141,7 +141,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="请输入新密码"
+                android:hint="@string/input_new_pwd"
                 android:inputType="phone"
                 android:singleLine="true"
                 android:textColor="@color/main_font_color"
@@ -155,7 +155,7 @@
             android:layout_height="45dp"
             android:layout_marginTop="40dp"
             android:background="@drawable/icon_button_bg"
-            android:text="重置密码"
+            android:text="@string/reset_pwd"
             android:textColor="@color/main_font_color"
             android:textSize="16sp" />
     </LinearLayout>
