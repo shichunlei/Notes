@@ -61,4 +61,10 @@ public class Constants {
 	public static final int[] colors = { R.color.purple, R.color.red,
 			R.color.orange, R.color.yellow, R.color.green, R.color.blue,
 			R.color.cyan };
+
+	public static final int[] bgcolors = { R.drawable.bg_content_1,
+			R.drawable.bg_content_2, R.drawable.bg_content_3,
+			R.drawable.bg_content_4, R.drawable.bg_content_5,
+			R.drawable.bg_content_6, R.drawable.bg_content_7,
+			R.drawable.bg_content_8 };
 }
