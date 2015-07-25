@@ -6,8 +6,10 @@ import com.leo.notes.R;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -15,10 +17,18 @@ public class BaseActivity extends FragmentActivity {
 
 	public Context context;
 
+	protected int mScreenWidth;
+	protected int mScreenHeight;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		context = this;
+		// 获取当前屏幕宽高
+		DisplayMetrics metric = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metric);
+		mScreenWidth = metric.widthPixels;
+		mScreenHeight = metric.heightPixels;
 	}
 
 	@Override
@@ -292,6 +302,24 @@ public class BaseActivity extends FragmentActivity {
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	/**
+	 * 获取当前状态栏的高度 getStateBar
+	 * 
+	 * @Title: getStateBar
+	 * @throws
+	 */
+	public int getStateBar() {
+		Rect frame = new Rect();
+		getWindow().getDecorView().getWindowVisibleDisplayFrame(frame);
+		int statusBarHeight = frame.top;
+		return statusBarHeight;
+	}
+
+	public static int dip2px(Context context, float dipValue) {
+		float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (scale * dipValue + 0.5f);
 	}
 
 }

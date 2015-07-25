@@ -76,7 +76,7 @@ public class NotesInfoActivity extends BaseActivity {
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		title_bar.setBackgroundColor(color);
-		tvTitle.setText(getString(R.string.app_name));
+		
 		imgLeft.setImageResource(R.drawable.icon_back);
 		imgRight.setImageResource(R.drawable.edit);
 
@@ -86,6 +86,7 @@ public class NotesInfoActivity extends BaseActivity {
 
 	private void getNotesInfo(String id) {
 		BmobQuery<Notes> query = new BmobQuery<Notes>();
+		query.include("group");
 		query.getObject(context, id, new GetListener<Notes>() {
 
 			@Override
@@ -96,6 +97,7 @@ public class NotesInfoActivity extends BaseActivity {
 				tvName.setText(object.getTitle());
 				tvContent.setText(object.getContent());
 				tvTime.setText(object.getCreatedAt());
+				tvTitle.setText(object.getGroup().getName());
 			}
 
 			@Override

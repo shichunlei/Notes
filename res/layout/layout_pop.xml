@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/layout_default"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cpb_blue_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="默认" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/layout_life"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cpb_blue_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="生活" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/layout_study"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cpb_blue_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="学习" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
+
+    <TextView
+        android:id="@+id/layout_work"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cpb_blue_dark"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="工作" />
+
+</LinearLayout>

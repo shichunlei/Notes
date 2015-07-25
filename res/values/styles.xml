@@ -43,6 +43,11 @@
         <item name="android:windowEnterAnimation">@anim/pop_up</item>
         <item name="android:windowExitAnimation">@anim/pop_down</item>
     </style>
+    
+    <style name="MenuPop" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/scale_top_in</item>
+        <item name="android:windowExitAnimation">@anim/scale_top_out</item>
+    </style>
 
     <style name="login_edittext">
         <item name="android:textSize">17sp</item>

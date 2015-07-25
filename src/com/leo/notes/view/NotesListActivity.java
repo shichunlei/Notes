@@ -91,7 +91,7 @@ public class NotesListActivity extends BaseActivity {
 
 		User current_user = BmobUser.getCurrentUser(context, User.class);
 		author = current_user.getObjectId();
-		group = "KWRY555D";
+		group = getStringExtra("group_id");
 
 		loading.show();
 		getList(author, group);

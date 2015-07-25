@@ -1,19 +1,29 @@
 package com.leo.notes.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
+import scl.leo.library.dialog.circularprogress.CircularProgressDialog;
 import scl.leo.library.slidingmenu.SlidingMenu;
 import scl.leo.library.utils.other.SPUtils;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindListener;
 
 import com.leo.notes.R;
+import com.leo.notes.adapter.GroupAdapter;
+import com.leo.notes.been.Group;
 import com.leo.notes.fragment.MenuFragment;
 import com.leo.notes.util.Constants;
 import com.leo.notes.util.ThemeUtil;
@@ -35,10 +45,18 @@ public class MainFragmentActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
-	@ViewInject(id = R.id.notes, click = "notes")
-	private Button notes;
+	@ViewInject(id = R.id.gridview, itemClick = "onItemClick")
+	private GridView gridview;
 
-	int color;
+	private GroupAdapter adapter;
+
+	private CircularProgressDialog loading;
+
+	private List<Group> groupList = new ArrayList<Group>();
+
+	private int color;
+
+	private String group_id;
 
 	private long mExitTime;
 
@@ -54,11 +72,13 @@ public class MainFragmentActivity extends BaseActivity {
 	}
 
 	private void init() {
+		loading = CircularProgressDialog.show(context);
+
 		color = getResources().getColor(
 				(Integer) SPUtils.get(context, "color", R.color.gray,
 						Constants.COLOR));
 		title_bar.setBackgroundColor(color);
-		tvTitle.setText("主页");
+		tvTitle.setText("记事分类");
 
 		if ((Boolean) SPUtils.get(context, "model", false,
 				Constants.SETTING_DATA)) {
@@ -66,6 +86,45 @@ public class MainFragmentActivity extends BaseActivity {
 		} else {
 			imgLeft.setImageResource(R.drawable.menu);
 		}
+
+		loading.show();
+		getGroups();
+	}
+
+	private void getGroups() {
+		BmobQuery<Group> query = new BmobQuery<Group>();
+		query.findObjects(this, new FindListener<Group>() {
+			@Override
+			public void onSuccess(List<Group> object) {
+				loading.dismiss();
+				showToast("查询成功：共" + object.size() + "条数据。");
+				if (object.size() > 0) {
+					if (groupList != null) {
+						groupList.clear();
+					}
+
+					groupList.addAll(object);
+					object.clear();
+
+					adapter = new GroupAdapter(context);
+					adapter.replaceWith(groupList);
+					gridview.setAdapter(adapter);
+				}
+			}
+
+			@Override
+			public void onError(int code, String msg) {
+				loading.dismiss();
+				showToast("查询失败");
+				Log.i(TAG, msg);
+			}
+		});
+	}
+
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		group_id = groupList.get(position).getObjectId();
+		openActivity(NotesListActivity.class, "group_id", group_id, false);
 	}
 
 	private void initSlidingmenu() {
@@ -97,10 +156,6 @@ public class MainFragmentActivity extends BaseActivity {
 		} else {
 			mSlidingMenu.toggle();
 		}
-	}
-
-	public void notes(View v) {
-		openActivity(NotesListActivity.class, false);
 	}
 
 	// 按下菜单键时
