@@ -30,23 +30,22 @@
 
             <EditText
                 android:id="@+id/et_title"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                style="@style/login_edittext"
                 android:background="@drawable/bg_border"
-                android:gravity="center_vertical"
-                android:hint="请输入标题"
-                android:paddingLeft="8dp" />
+                android:hint="请输入标题" />
 
             <EditText
                 android:id="@+id/et_content"
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_border"
                 android:gravity="left"
-                android:hint="请输入标题"
-                android:minLines="5"
-                android:padding="8dp" />
+                android:hint="请输入内容"
+                android:minLines="8"
+                android:padding="10dp"
+                android:textColor="@color/main_font_color"
+                android:textColorHint="@color/main_font_color" />
         </LinearLayout>
     </RelativeLayout>
 
