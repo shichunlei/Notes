@@ -1,9 +1,11 @@
 package com.leo.notes.view;
 
+import scl.leo.library.utils.other.AppUtils;
 import scl.leo.library.utils.other.SPUtils;
 import net.tsz.afinal.FinalActivity;
 import net.tsz.afinal.annotation.view.ViewInject;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -16,6 +18,8 @@ import com.leo.notes.view.base.BaseActivity;
 
 public class AboutMeActivity extends BaseActivity {
 
+	private static final String TAG = "AboutMeActivity";
+
 	@ViewInject(id = R.id.title_bar)
 	private RelativeLayout title_bar;
 
@@ -24,7 +28,13 @@ public class AboutMeActivity extends BaseActivity {
 	@ViewInject(id = R.id.tv_title)
 	private TextView tvTitle;
 
-	int color;
+	@ViewInject(id = R.id.tv_version)
+	private TextView version;
+
+	private int color;
+
+	private String versionName;
+	private int versionCode;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +52,11 @@ public class AboutMeActivity extends BaseActivity {
 		title_bar.setBackgroundColor(color);
 		tvTitle.setText(R.string.about_me);
 		ivTitleLeft.setImageResource(R.drawable.icon_back);
+
+		versionName = AppUtils.getVersionName(context);
+		versionCode = AppUtils.getVersionCode(context);
+		Log.i(TAG, "版本名：" + versionName + "版本号：" + versionCode);
+		version.setText("版本：" + versionName);
 	}
 
 	public void back(View v) {

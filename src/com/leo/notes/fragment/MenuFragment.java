@@ -28,6 +28,8 @@ import com.leo.notes.view.base.BaseFragment;
 
 public class MenuFragment extends BaseFragment implements OnClickListener {
 
+	private static final String TAG = "MenuFragment";
+
 	private View view;
 
 	/** 关于 */
@@ -84,7 +86,7 @@ public class MenuFragment extends BaseFragment implements OnClickListener {
 	private void init() {
 		versionName = AppUtils.getVersionName(getActivity());
 		versionCode = AppUtils.getVersionCode(getActivity());
-		Log.i("AboutActivity", "版本名：" + versionName + "版本号：" + versionCode);
+		Log.i(TAG, "版本名：" + versionName + "版本号：" + versionCode);
 		versionname.setText(versionName);
 
 		userInfo = BmobUser.getCurrentUser(getActivity(), User.class);

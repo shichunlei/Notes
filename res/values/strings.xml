@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">彩虹记事</string>
-    <string name="about_txt">彩虹记事 v1.0\r\n\r\n作者：leo\r\n邮箱：1558053958@qq.com\r\n\r\n欢迎交流，谢谢支持！</string>
 
     <!-- 对话框提示语 -->
     <string name="alert_hint">提示</string>
@@ -105,5 +104,16 @@
     <!-- Notes -->
     <string name="input_hint_content">请输入内容</string>
     <string name="input_hint_title">请输入标题</string>
+
+    <!-- 关于 -->
+    <string name="sina">新浪微博：http://weibo.com/u/2114673917</string>
+    <string name="tencent">腾讯微博：http://t.qq.com/scl1558053958</string>
+    <string name="website">官网：http://user.qzone.qq.com/1558053958</string>
+    <string name="weixin">微信：shi_leo1990</string>
+    <string name="email">邮箱：1558053958@qq.com</string>
+    <string name="tel">电话：18601952581</string>
+    <string name="call_me">联系我</string>
+    <string name="attention_me">关注我</string>
+    <string name="about_app">这里应该是一段介绍性的文字</string>
 
 </resources>
